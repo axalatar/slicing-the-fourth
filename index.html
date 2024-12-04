@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Slicing the Fourth</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- <canvas id="webglCanvas"></canvas> -->
+    <!-- <script src="main.js"></script> -->
+    What is the fourth dimension? What does it mean for there to be another?
+
+    First, let's explain what a dimension is. In essence, a dimension is just a direction. Imagine a man living on a line:
+
+    [image here of a stick figure man standing on a line with an arrow in each direction]
+
+    He can move either left or right on the line. We can understand this means he has one direction; the line is one-dimensional. Formally, any position on the line can be described with a single number. We can call that position on the line x.
+
+
+    Now, imagine we give him a ladder that he can move along his line.
+
+    [image here of the stick figure man saying ‘yay’ with the ladder on the arrow]
+
+    He can now move left and right, and up and down. There are two directions; he can now move two-dimensionally. To describe any one position now, we need two numbers, x like before, as well as a new number y to show his ‘height’ on the ladder.
+
+
+    This should all feel very familiar, as you’ve seen 2d graphs like this 
+    in every math class for as long as you can remember. How does this help 
+    us understand 4d objects? Well, consider how Oliver (that’s his name now!) 
+    thinks about you. Yes, you! Looking at him on the screen, you're viewing him
+    from another direction, which we can call the z axis (an 'axis' just means a direction).
+    He can't turn towards the screen, so from his perspective you don't exist. However, what
+    happens if you put your hand next to your screen?
+
+    [image here of a hand on the side of a laptop screen, with a picture of stick figure man on it]
+    Come on, do it! Really!
+
+
+    You're not flat, but Oliver can still see the part of your hand that intersects with the area
+    he can see, which is the flat plane of the screen. Imagining the intersection of your finger
+    and the plane, you can see it's just something like a circle. We call this the cross-section
+    of the plane and the finger.
+
+    [image here of the laptop screen being extended to the finger, and the intersecting circle being drawn out]
+
+    Let's say we want to show Oliver what a cube is
+    (you could use a more complex shape, but the math will get harder).
+
+    How could we do it? Well, imagine we take a magic floating cube next to the screen. If we
+    move it fully from one side to the other, Oliver could see the whole thing, just through the
+    individual cross-sections.
+
+    ...but to him, what would it look like? Try to figure it out on your own before continuing.
+    [page break here]
+    [simulation with a plane and a cube placed towards the screen. there is a slider which controls the cube's z position. the intersection of the two geometries is drawn separately]
+
+    It's a square. It makes sense; the cube is aligned to the plane, so when the cube enters or leaves
+    the plane, all levels of the cube at that z-level enter/leave at the same time. Mathematically,
+    we can see this by looking at the equation of the cube and plane. If we imagine Oliver's house
+    to be the origin (where x, y, and z = 0) and the cube to be a 'unit cube' where 
+    the side length = 1, then we can say the plane is defined as
+    
+    z = 0
+
+    and the cube is defined as
+    -0.5 <= x <= 0.5
+    -0.5 <= y <= 0.5
+    -0.5 <= z <= 0.5
+
+    so, to find the cross-section we can just plug the z value from the first equation to the second:
+    
+    -0.5 <= x <= 0.5
+    -0.5 <= y <= 0.5
+
+    and, this is the equation of a square. Perfect!
+    
+
+    Now, let's get back to the point. What is the fourth dimension? First, extend your knowledge
+    from the prior exercise to your own world-- the real world. You are Oliver.
+
+    What does that mean? Well, try to imagine our entire universe-- everything, everywhere--
+    exists on a flat, three-dimensinoal 'hyperplane' (plane is specific to 2D).
+    Now, there are still our three axes (x y and z), but there is also a fourth one, which we
+    can call w. As Oliver, you can't turn towards w, but you can still understand it's there
+    by extending your knowledge of how a 2D creature might exist in a 3D world.
+
+    But, bad news; the magic floating unit cube is back, and now it has another dimension!
+    Now, instead of just being a cube, it's a 4D hypercube, also called a tesseract. Rather than
+    a cube, which is made up of six squares, or a square, which is made up of 4 lines, a tesseract
+    is made of 8 cubes. 
+    
+    Do you see the pattern? [on click: try to figure out why. how do you construct a cube from squares, or a square from lines?]
+
+    Mathematically, it can be described as 
+
+    -0.5 <= x <= 0.5
+    -0.5 <= y <= 0.5
+    -0.5 <= z <= 0.5
+    -0.5 <= w <= 0.5
+
+    So... what would you see? What object would appear in front of you as the hypercube moved through
+    the w-axis?
+    
+    [page break here]
+    [simulation which shows the intersection of a hypercube and a 3d plane. there is a slider which controls the cube's w position. the intersection of the two geometries is drawn in the center of the screen]
+
+    You probably could've seen this coming, but it's a cube. Setting w to zero with the same logic we used earlier,
+    you can see the cross-section is 
+
+    -0.5 <= x <= 0.5
+    -0.5 <= y <= 0.5
+    -0.5 <= z <= 0.5
+
+    as you can probably tell, this is the equation of a cube. Perfect.
+
+
+    So, great. We can make cubes appear and disappear. But what about the *fourth dimension*?
+    All those cool gifs of weird rotating geometries labeled tesseracts? What about those?
+
+    Well, first let's revisit Oliver.
+
+    [image of Oliver waving hi]
+
+    You might have noticed an issue with our earlier 'simulations' of the intersections.
+    It assumes that the cubes are always aligned perfectly with the planes. But, what if that's not the case?
+
+    [image of the cube next to Oliver's plane, now rotated 45 degrees around each axis so one vertex is facing the plane]
+
+    this is the same cube, rotated 45 degrees around each axis. Imagine what Oliver would see now, as the
+    plane moves through the z-axis. Try to figure it out, and then test your thoughts:
+
+    [simulation with a plane and the rotated cube placed towards the screen. there is a slider which controls the cube's z position. the intersection of the two geometries is drawn separately]
+
+    first, there is a single point, which grows into a triangle, then grows into a rotated square,
+    before shrinking back into a triangle, then to a point, then disappearing.
+
+    Just looking at the shape of the rotated cube, it makes sense; the plane first intersects the tip,
+    then intersects along the pyramidical section of the cube, then reaches the very center of the cube which
+    is the one part which *is* aligned to the plane, and is therefore a square; and then continues shrinking
+    on the other side, which is parallel to the first.
+
+    How about the math, though? [on click:
+        first, we know the cube can be represented as 
+        
+        -0.5 <= x <= 0.5
+        -0.5 <= y <= 0.5
+        -0.5 <= z <= 0.5
+
+        but what about the rotations?
+        Well, for those of you who haven't learned matrices yet, there's a great math tool called
+        a rotation matrix. It lets you rotate around a position by some angle on some plane.
+
+        Understanding how they work is out of the scope of this explainer, but to use them shouldn't be too difficult:
+
+        [x, y, z][1, 0, 0 \ 0, cos(45), -sin(45) \ 0, sin(45), cos(45)] = [x, ycos(45) - zsin(45), ysin(45) + zsin(45)]
+        [x, ycos(45) - zsin(45), ysin(45) + zsin(45)][cos(45), 0, sin(45) \ 0, 1, 0 \ -sin(45), 0, cos(45)] = 
+        [x, y, z][cos(45), -sin(45), 0 \ sin()]
+
+        FINISH TRANSFORMATIONS
+
+        x' = (x + y*(-1 + sqrt(2)/2) + z*(sqrt(2)/2 + 1)) / 2
+        y' = (x + y*(sqrt(2)/2 + 1) + z*(-1 + sqrt(2)/2)) / 2
+        z' = (-sqrt(2)*x + y + z) / 2
+
+        so, these coordinates tell us the x y and z positions after they have been rotated. We
+        also still know the following equality:
+
+        -0.5 <= x <= 0.5
+        -0.5 <= y <= 0.5
+        -0.5 <= z <= 0.5
+
+        and, we want to find when the rotated cube intersects the xy plane, when z' = 0, so
+
+        0 = (-sqrt(2)*x + y + z) / 2
+
+        we can find an equation for the z-value by using this constraint:
+
+        0 = (-sqrt(2)*x + y + z) / 2
+        0 = -sqrt(2)*x + y + z
+        -z = -sqrt(2)*x + y
+        z = sqrt(2)*x - y
+
+
+        
+
+
+
+
+
+
+
+        Now, let's look back at our inequalities. Look at the z inequality:
+
+        -0.5 <= z <= 0.5
+
+        makes sense, but remember that we want to display the cube rotating *next* to the plane,
+        not in the plane. Right now, it's centered at 0. To change this, let's just add one more
+        variable, c_z, to represent the z value of the center. Our inequality will now look like
+
+        -0.5 + c_z <= z <= 0.5 + c_z
+
+        and, combining this with our z definition, we can see
+
+        -0.5 + c_z <= sqrt(2)*x - y <= 0.5 + c_z
+
+        this can be rearranged into two inequalities in terms of y:
+
+        y >= sqrt(2)*x - 0.5 - c_z
+        y <= sqrt(2)*x + 0.5 - c_z
+
+        perfect! Now, this tells us the unrotated domain of the cube. How does this help us,
+        anyway? Well, to see what Oliver sees, we need to be able to analyze the domain of the
+        cross-section of the rotated cube and the plane. For that to be the case, we need to be
+        able to view the system of equations of the intersection in terms of only x and y.
+        We *can* remove the z-value, by just testing it at different constant values. We know
+        from our ealier analysis the different sections of the cross-section that appear when
+        shifting the z-value, so we can just make some educated guesses here. First, let's look
+        at when the center of the cube is the furthest it can be from the plane while still 
+        touching:
+        
+        z = 1
+
+
+
+
+        We can find this by combining the new definition of z and the earlier system of equations:
+
+        x' = (x + y*(-1 + sqrt(2)/2) + z*(sqrt(2)/2 + 1)) / 2
+        = (x + y*(-1 + sqrt(2)/2) + (sqrt(2)*x - y)*(sqrt(2)/2 + 1)) / 2
+        = (x*sqrt(2) * (1+sqrt(2)) - 2y) / 2
+        = (sqrt(2) * (x(1+sqrt(2)) - y*sqrt(2))) / 2
+
+        = (x(1+sqrt(2)) - y*sqrt(2)) / sqrt(2)
+        y' = (x(-1+sqrt(2)) + y*sqrt(2)) / sqrt(2)
+        z' = 0 (obviously)
+
+        Great! Now 
+
+
+
+
+
+    ]
+</body>
+</html>

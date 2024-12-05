@@ -133,16 +133,16 @@
 
     [simulation with a plane and the rotated cube placed towards the screen. there is a slider which controls the cube's z position. the intersection of the two geometries is drawn separately]
 
-    first, there is a single point, which grows into a triangle, then grows into a rotated square,
+    first, there is a single point, which grows into a triangle, then grows into more complex shapes,
     before shrinking back into a triangle, then to a point, then disappearing.
 
     Just looking at the shape of the rotated cube, it makes sense; the plane first intersects the tip,
-    then intersects along the pyramidical section of the cube, then reaches the very center of the cube which
-    is the one part which *is* aligned to the plane, and is therefore a square; and then continues shrinking
-    on the other side, which is parallel to the first.
+    then intersects along the pyramidical section of the cube, then begins reaching the other edges
+    of the cube which add more complex sides, until it reaches the midpoint; and then begins shrinking
+    on the other side, which is opposite to the first.
 
     How about the math, though? [on click:
-        first, we know the cube can be represented as 
+        First, we know the cube can be represented as 
         
         -0.5 <= x <= 0.5
         -0.5 <= y <= 0.5
@@ -158,39 +158,30 @@
         R_y = [cos(theta), 0, sin(theta) \ 0, 1, 0 \ -sin(theta), 0, cos(theta)]
         R_z = [cos(theta), -sin(theta), 0 \ sin(theta), cos(theta), 0 \ 0, 0, 1]
 
-        and multiply our coordinates [x \ y \ z] by them. One thing to keep in mind is that matrix
-        multiplication is not commutative, meaning the order we apply them in matters, but we can just
-        say for the sake of it we're gonna rotate on the x axis first, then the y axis, then the z axis.
-        So, R_z(R_y(R_z([x \ y \ z])))
+        and multiply our coordinates [x \ y \ z] by them. We need to be careful the order we apply them;
+        matrix multiplication is not commutative, meaning order *does* matter. If we do 
+        R_z * R_y * R_x * [x \ y \ z]
+        for every subsequent rotation, the axes we are rotating around will *also be rotated*. We don't
+        want that, so instead we will use
+        R_x * R_y * R_z * [x \ y \ z]
+        which is an *extrinsic* rotation; one that uses fixed axes. To see why, see here [https://math.stackexchange.com/questions/1137745/proof-of-the-extrinsic-to-intrinsic-rotation-transform]
+        Now, let's multiply these matrices:
         
 
-        [1, 0, 0 \ 0, cos(theta), -sin(theta) \ 0, sin(theta), cos(theta)][x \ y \ z] = 
-        [x \ ycos(theta) - zsin(theta) \ ysin(theta) + zcos(theta)]
+        [1, 0, 0 \ 0, cos(theta), -sin(theta) \ 0, sin(theta), cos(theta)][cos(theta), 0, sin(theta) \ 0, 1, 0 \ -sin(theta), 0, cos(theta)][cos(theta), -sin(theta), 0 \ sin(theta), cos(theta), 0 \ 0, 0, 1][x \ y \ z]
+        = [xcos^2(theta) - ysin(theta)cos(theta) + zsin(theta) \ x(sin^2(theta)cos(theta)+sin(theta)cos(theta)) + y(cos^2(theta)-sin^3(theta)) - zsin(theta)cos(theta) \ x(sin^2(theta)-sin(theta)cos^2(theta)) + y(sin^2(theta)cos(theta)+sin(theta)cos(theta)) + zcos^2(theta)]
 
-        [cos(theta), 0, sin(theta) \ 0, 1, 0 \ -sin(theta), 0, cos(theta)][x \ ycos(theta) - zsin(theta) \ ysin(theta) + zcos(theta)] =
-        [xcos(theta) + (ysin(theta) + zcos(theta))sin(theta) \ ycos(theta) - zsin(theta) \ -xsin(theta) + (ysin(theta) + zcos(theta))cos(theta)]
+        It's a bit of a beast, but remember that our
+        theta is 45 degrees, and that sin(45) = cos(45) = sqrt(2) / 2. Using that property and simplifying
+        gives us this final vector:
 
-        [cos(theta), -sin(theta), 0 \ sin(theta), cos(theta), 0 \ 0, 0, 1][xcos(theta) + (ysin(theta) + zcos(theta))sin(theta) \ ycos(theta) - zsin(theta) \ -xsin(theta) + (ysin(theta) + zcos(theta))cos(theta)] = 
-        [(xcos(theta) + (ysin(theta) + zcos(theta))sin(theta))cos(theta) - (ycos(theta) - zsin(theta))sin(theta) \ (xcos(theta) + (ysin(theta) + zcos(theta))sin(theta))sin(theta) + (ycos(theta) - zsin(theta))cos(theta) \ -xsin(theta) + (ysin(theta) + zcos(theta))cos(theta)]
-
-        So, this is a coordinate [x, y, z] when rotated around each axis by the same amount (in the order x, y, z):
-        [(xcos(theta) + (ysin(theta) + zcos(theta))sin(theta))cos(theta) - (ycos(theta) - zsin(theta))sin(theta) \ (xcos(theta) + (ysin(theta) + zcos(theta))sin(theta))sin(theta) + (ycos(theta) - zsin(theta))cos(theta) \ -xsin(theta) + (ysin(theta) + zcos(theta))cos(theta)]
-
-        It's a bit of a beast, but before we go through the whole process of simplifying, remember that our
-        theta is 45 degrees, and that sin(45) = cos(45) = sqrt(2) / 2. Using that property makes this
-        a lot easier:
-
-        [(xcos(45) + (ysin(45) + zcos(45))sin(45))cos(45) - (ycos(45) - zsin(45))sin(45) \ (xcos(45) + (ysin(45) + zcos(45))sin(45))sin(45) + (ycos(45) - zsin(45))cos(45) \ -xsin(45) + (ysin(45) + zcos(45))cos(45)]
-
-        Some simplifying later... (I'm not writing it all out, putting it all in LaTeX would kill me)
-
-        [(2x + (sqrt(2) - 2)y + (2 + sqrt(2))z) / 4 \ (2x + (2 + sqrt(2))y + (sqrt(2) - 2)z) / 4 \ (-sqrt(2)x + y + z) / 2]
+        = [(x - y + sqrt(2)z) / 2 \ ((2 + sqrt(2))x - (sqrt(2) - 2)y - 2z) / 4 \ (-(sqrt(2) - 2)x + (2 + sqrt(2))y + 2z) / 4]
 
         So, this tells us that
 
-        x' = (2x + (sqrt(2) - 2)y + (2 + sqrt(2))z) / 4
-        y' = (2x + (2 + sqrt(2))y + (sqrt(2) - 2)z) / 4
-        z' = (-sqrt(2)x + y + z) / 2
+        x' = (x - y + sqrt(2)z) / 2
+        y' = ((2 + sqrt(2))x - (sqrt(2) - 2)y - 2z) / 4
+        z' = (-(sqrt(2) - 2)x + (2 + sqrt(2))y + 2z) / 4
 
         The apostrophe means that those are the rotated positions. So, great! We have the system of
         equations that will give us a position rotated by 45 degrees on each axis. Now, how do we turn
@@ -234,15 +225,13 @@
 
         and, let's expand them with our earlier definitions:
 
-        -0.5 <= (2x + (sqrt(2) - 2)y + (2 + sqrt(2))z) / 4 <= 0.5
-        -0.5 <= (2x + (2 + sqrt(2))y + (sqrt(2) - 2)z) / 4 <= 0.5
-        -0.5 <= (-sqrt(2)x + y + z) / 2 <= 0.5
+        -0.5 <= (x - y + sqrt(2)z) / 2 <= 0.5
+        -0.5 <= ((2 + sqrt(2))x - (sqrt(2) - 2)y - 2z) / 4 <= 0.5
+        -0.5 <= (-(sqrt(2) - 2)x + (2 + sqrt(2))y + 2z) / 4 <= 0.5
 
-        *Keep in mind that matrix multiplication also rotates the axes we rotate around; this means
-        that when we first rotate around the x-axis, the y and z axes are rotated too, so they're always
-        relative to the cubes faces.*
-        Now, how can we find the cross-section of this rotated cube and Oliver's plane (the xy plane)?
-        Try to figure it out, and then scroll down.
+        This is the full system of equations of our rotated cube. Now, how can we find 
+        the cross-section of this rotated cube and Oliver's plane (the xy plane)? Try to figure it out, 
+        and then scroll down.
 
         [page break]
 
@@ -250,9 +239,9 @@
         Last time, we just set the z to 0, and this time we want to do something very similar.
         Take a look at the third inequality:
 
-        -0.5 <= (2x + (sqrt(2) - 2)y + (2 + sqrt(2))z) / 4 <= 0.5
-        -0.5 <= (2x + (2 + sqrt(2))y + (sqrt(2) - 2)z) / 4 <= 0.5
-        -0.5 <= (-sqrt(2)x + y + z) / 2 <= 0.5
+        -0.5 <= (x - y + sqrt(2)z) / 2 <= 0.5
+        -0.5 <= ((2 + sqrt(2))x - (sqrt(2) - 2)y - 2z) / 4 <= 0.5
+        -0.5 <= (-(sqrt(2) - 2)x + (2 + sqrt(2))y + 2z) / 4 <= 0.5
 
         remember, that section is equal to z', or the z value of the rotated cube *after it is rotated
         back into a normal cube*. We want to set the z to be 0 when it is still rotated, because that's
@@ -260,9 +249,9 @@
         
         z = 0,
 
-        -0.5 <= (2x + (sqrt(2) - 2)y) / 4 <= 0.5
-        -0.5 <= (2x + (2 + sqrt(2))y) / 4 <= 0.5
-        -0.5 <= (-sqrt(2)x + y) / 2 <= 0.5
+        -0.5 <= (x - y) / 2 <= 0.5
+        -0.5 <= ((2 + sqrt(2))x - (sqrt(2) - 2)y) / 4 <= 0.5
+        -0.5 <= (-(sqrt(2) - 2)x + (2 + sqrt(2))y) / 4 <= 0.5
 
         This is some shape in terms of x and y, which immediately can tell us that it's a shape Oliver
         can see. We could break this down further, but at this point it's easiest to just plot it and
@@ -270,12 +259,34 @@
 
         [picture of the shape plotted in desmos]
 
-        It looks like some sort of strange parallelogram.
+        It looks like some sort of irregular hexagon. Interesting!
+        *You could have figured out this would have been some sort of hexagon before we did any math-- for an extra challenge, figure out how!*
 
+        [picture of oliver looking at the weird shape]
 
+        If we shift the shape around on the z-axis, we can see the different sections. You can acheive
+        this by adding another term to the equations, to represent the z-shift. We'll call it k.
+        In our new system,
 
+        -0.5 <= (x - y + sqrt(2)(z-h)) / 2 <= 0.5
+        -0.5 <= ((2 + sqrt(2))x - (sqrt(2) - 2)y - 2(z-h)) / 4 <= 0.5
+        -0.5 <= (-(sqrt(2) - 2)x + (2 + sqrt(2))y + 2(z-h)) / 4 <= 0.5
 
+        and with z = 0,
 
+        -0.5 <= (x - y - sqrt(2)h) / 2 <= 0.5
+        -0.5 <= ((2 + sqrt(2))x - (sqrt(2) - 2)y + 2h) / 4 <= 0.5
+        -0.5 <= (-(sqrt(2) - 2)x + (2 + sqrt(2))y - 2h) / 4 <= 0.5
+
+        try playing around with this in Desmos! This is already a massive block of math so I'm going
+        to move onto different stuff now, but have some fun with it! Try looking at different rotations,
+        or even different shapes!
+
+        ps. if you want to check this out on Desmos, go here[https://www.desmos.com/3d/k4wra3dwll]
     ]
+
+    Phew. For anyone who didn't check out the math section, it was a *lot*. But, we're free now!
+    
+
 </body>
 </html>

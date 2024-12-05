@@ -151,8 +151,7 @@
         but what about the rotations?
         Well, for those of you who haven't learned matrices yet, there's a great math tool called
         a rotation matrix. It lets you rotate a position around the origin counterclockwise by some 
-        angle on some plane (for example, the xy plane, or the yz plane. or, the zw plane! 
-        remember that w is just another axis).
+        angle on some axis.
 
         To use it, we just need to take the three matrices:
         R_x = [1, 0, 0 \ 0, cos(theta), -sin(theta) \ 0, sin(theta), cos(theta)]
@@ -239,6 +238,9 @@
         -0.5 <= (2x + (2 + sqrt(2))y + (sqrt(2) - 2)z) / 4 <= 0.5
         -0.5 <= (-sqrt(2)x + y + z) / 2 <= 0.5
 
+        *Keep in mind that matrix multiplication also rotates the axes we rotate around; this means
+        that when we first rotate around the x-axis, the y and z axes are rotated too, so they're always
+        relative to the cubes faces.*
         Now, how can we find the cross-section of this rotated cube and Oliver's plane (the xy plane)?
         Try to figure it out, and then scroll down.
 
@@ -262,94 +264,13 @@
         -0.5 <= (2x + (2 + sqrt(2))y) / 4 <= 0.5
         -0.5 <= (-sqrt(2)x + y) / 2 <= 0.5
 
+        This is some shape in terms of x and y, which immediately can tell us that it's a shape Oliver
+        can see. We could break this down further, but at this point it's easiest to just plot it and
+        find out. Let's see!
 
+        [picture of the shape plotted in desmos]
 
-
-
-
-        [x, y, z][1, 0, 0 \ 0, cos(45), -sin(45) \ 0, sin(45), cos(45)] = [x, ycos(45) - zsin(45), ysin(45) + zsin(45)]
-        [x, ycos(45) - zsin(45), ysin(45) + zsin(45)][cos(45), 0, sin(45) \ 0, 1, 0 \ -sin(45), 0, cos(45)] = 
-        [x, y, z][cos(45), -sin(45), 0 \ sin()]
-
-        FINISH TRANSFORMATIONS
-
-        x' = (x + y*(-1 + sqrt(2)/2) + z*(sqrt(2)/2 + 1)) / 2
-        y' = (x + y*(sqrt(2)/2 + 1) + z*(-1 + sqrt(2)/2)) / 2
-        z' = (-sqrt(2)*x + y + z) / 2
-
-        so, these coordinates tell us the x y and z positions after they have been rotated. We
-        also still know the following equality:
-
-        -0.5 <= x <= 0.5
-        -0.5 <= y <= 0.5
-        -0.5 <= z <= 0.5
-
-        and, we want to find when the rotated cube intersects the xy plane, when z' = 0, so
-
-        0 = (-sqrt(2)*x + y + z) / 2
-
-        we can find an equation for the z-value by using this constraint:
-
-        0 = (-sqrt(2)*x + y + z) / 2
-        0 = -sqrt(2)*x + y + z
-        -z = -sqrt(2)*x + y
-        z = sqrt(2)*x - y
-
-
-        
-
-
-
-
-
-
-
-        Now, let's look back at our inequalities. Look at the z inequality:
-
-        -0.5 <= z <= 0.5
-
-        makes sense, but remember that we want to display the cube rotating *next* to the plane,
-        not in the plane. Right now, it's centered at 0. To change this, let's just add one more
-        variable, c_z, to represent the z value of the center. Our inequality will now look like
-
-        -0.5 + c_z <= z <= 0.5 + c_z
-
-        and, combining this with our z definition, we can see
-
-        -0.5 + c_z <= sqrt(2)*x - y <= 0.5 + c_z
-
-        this can be rearranged into two inequalities in terms of y:
-
-        y >= sqrt(2)*x - 0.5 - c_z
-        y <= sqrt(2)*x + 0.5 - c_z
-
-        perfect! Now, this tells us the unrotated domain of the cube. How does this help us,
-        anyway? Well, to see what Oliver sees, we need to be able to analyze the domain of the
-        cross-section of the rotated cube and the plane. For that to be the case, we need to be
-        able to view the system of equations of the intersection in terms of only x and y.
-        We *can* remove the z-value, by just testing it at different constant values. We know
-        from our ealier analysis the different sections of the cross-section that appear when
-        shifting the z-value, so we can just make some educated guesses here. First, let's look
-        at when the center of the cube is the furthest it can be from the plane while still 
-        touching:
-        
-        z = 1
-
-
-
-
-        We can find this by combining the new definition of z and the earlier system of equations:
-
-        x' = (x + y*(-1 + sqrt(2)/2) + z*(sqrt(2)/2 + 1)) / 2
-        = (x + y*(-1 + sqrt(2)/2) + (sqrt(2)*x - y)*(sqrt(2)/2 + 1)) / 2
-        = (x*sqrt(2) * (1+sqrt(2)) - 2y) / 2
-        = (sqrt(2) * (x(1+sqrt(2)) - y*sqrt(2))) / 2
-
-        = (x(1+sqrt(2)) - y*sqrt(2)) / sqrt(2)
-        y' = (x(-1+sqrt(2)) + y*sqrt(2)) / sqrt(2)
-        z' = 0 (obviously)
-
-        Great! Now 
+        It looks like some sort of strange parallelogram.
 
 
 

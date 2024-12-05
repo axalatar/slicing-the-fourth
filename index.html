@@ -7,14 +7,9 @@
             margin: 0;
             overflow: hidden;
         }
-        canvas {
-            display: block;
-        }
     </style>
 </head>
 <body>
-    <!-- <canvas id="webglCanvas"></canvas> -->
-    <!-- <script src="main.js"></script> -->
     What is the fourth dimension? What does it mean for there to be another?
 
     First, let's explain what a dimension is. In essence, a dimension is just a direction. Imagine a man living on a line:
@@ -155,9 +150,122 @@
 
         but what about the rotations?
         Well, for those of you who haven't learned matrices yet, there's a great math tool called
-        a rotation matrix. It lets you rotate around a position by some angle on some plane.
+        a rotation matrix. It lets you rotate a position around the origin counterclockwise by some 
+        angle on some plane (for example, the xy plane, or the yz plane. or, the zw plane! 
+        remember that w is just another axis).
 
-        Understanding how they work is out of the scope of this explainer, but to use them shouldn't be too difficult:
+        To use it, we just need to take the three matrices:
+        R_x = [1, 0, 0 \ 0, cos(theta), -sin(theta) \ 0, sin(theta), cos(theta)]
+        R_y = [cos(theta), 0, sin(theta) \ 0, 1, 0 \ -sin(theta), 0, cos(theta)]
+        R_z = [cos(theta), -sin(theta), 0 \ sin(theta), cos(theta), 0 \ 0, 0, 1]
+
+        and multiply our coordinates [x \ y \ z] by them. One thing to keep in mind is that matrix
+        multiplication is not commutative, meaning the order we apply them in matters, but we can just
+        say for the sake of it we're gonna rotate on the x axis first, then the y axis, then the z axis.
+        So, R_z(R_y(R_z([x \ y \ z])))
+        
+
+        [1, 0, 0 \ 0, cos(theta), -sin(theta) \ 0, sin(theta), cos(theta)][x \ y \ z] = 
+        [x \ ycos(theta) - zsin(theta) \ ysin(theta) + zcos(theta)]
+
+        [cos(theta), 0, sin(theta) \ 0, 1, 0 \ -sin(theta), 0, cos(theta)][x \ ycos(theta) - zsin(theta) \ ysin(theta) + zcos(theta)] =
+        [xcos(theta) + (ysin(theta) + zcos(theta))sin(theta) \ ycos(theta) - zsin(theta) \ -xsin(theta) + (ysin(theta) + zcos(theta))cos(theta)]
+
+        [cos(theta), -sin(theta), 0 \ sin(theta), cos(theta), 0 \ 0, 0, 1][xcos(theta) + (ysin(theta) + zcos(theta))sin(theta) \ ycos(theta) - zsin(theta) \ -xsin(theta) + (ysin(theta) + zcos(theta))cos(theta)] = 
+        [(xcos(theta) + (ysin(theta) + zcos(theta))sin(theta))cos(theta) - (ycos(theta) - zsin(theta))sin(theta) \ (xcos(theta) + (ysin(theta) + zcos(theta))sin(theta))sin(theta) + (ycos(theta) - zsin(theta))cos(theta) \ -xsin(theta) + (ysin(theta) + zcos(theta))cos(theta)]
+
+        So, this is a coordinate [x, y, z] when rotated around each axis by the same amount (in the order x, y, z):
+        [(xcos(theta) + (ysin(theta) + zcos(theta))sin(theta))cos(theta) - (ycos(theta) - zsin(theta))sin(theta) \ (xcos(theta) + (ysin(theta) + zcos(theta))sin(theta))sin(theta) + (ycos(theta) - zsin(theta))cos(theta) \ -xsin(theta) + (ysin(theta) + zcos(theta))cos(theta)]
+
+        It's a bit of a beast, but before we go through the whole process of simplifying, remember that our
+        theta is 45 degrees, and that sin(45) = cos(45) = sqrt(2) / 2. Using that property makes this
+        a lot easier:
+
+        [(xcos(45) + (ysin(45) + zcos(45))sin(45))cos(45) - (ycos(45) - zsin(45))sin(45) \ (xcos(45) + (ysin(45) + zcos(45))sin(45))sin(45) + (ycos(45) - zsin(45))cos(45) \ -xsin(45) + (ysin(45) + zcos(45))cos(45)]
+
+        Some simplifying later... (I'm not writing it all out, putting it all in LaTeX would kill me)
+
+        [(2x + (sqrt(2) - 2)y + (2 + sqrt(2))z) / 4 \ (2x + (2 + sqrt(2))y + (sqrt(2) - 2)z) / 4 \ (-sqrt(2)x + y + z) / 2]
+
+        So, this tells us that
+
+        x' = (2x + (sqrt(2) - 2)y + (2 + sqrt(2))z) / 4
+        y' = (2x + (2 + sqrt(2))y + (sqrt(2) - 2)z) / 4
+        z' = (-sqrt(2)x + y + z) / 2
+
+        The apostrophe means that those are the rotated positions. So, great! We have the system of
+        equations that will give us a position rotated by 45 degrees on each axis. Now, how do we turn
+        this into a rotated cube? Try to figure it out, and then scroll down!
+
+        [page break]
+
+        Well, first, look at our earlier inequalities we used to describe a cube:
+
+        -0.5 <= x <= 0.5
+        -0.5 <= y <= 0.5
+        -0.5 <= z <= 0.5
+
+        What that's saying is that the x, y, and z values have to be between -0.5 and 0.5; this forms
+        a cube with side length 1 centered at (0, 0, 0). Great. We already know this. But, what if
+        instead, we said this:
+
+        -0.5 <= x' <= 0.5
+        -0.5 <= y' <= 0.5
+        -0.5 <= z' <= 0.5
+
+        A little weirder, but it still looks right. But think about what it really means; x', y', and z'
+        are all defined *in terms of* x, y, and z. This means what we're really solving for is the 
+        x, y, and z values which, when rotated by theta, form a normal cube. Understand the
+        difference of that and finding the x, y, and z values which form a cube rotated by theta.
+        There's a trick to it, though; there's only one cube which, when rotated by theta, is a normal
+        cube. It's a cube rotated by -theta. That way, the rotations cancel out and the cube is back
+        to where it started. This means that when we set the theta, we're actually rotating the cube
+        by -theta.
+
+        ...however, we don't really need to worry about this. Careful readers would have noticed that
+        earlier, I said that rotation matrices rotate *counterclockwise*. In reality, we want to
+        be rotating clockwise; so, reversing the direction of the rotation is actually correct in this
+        case.
+
+        Now, great! We have these inequalities, which create our rotated cube:
+
+        -0.5 <= x' <= 0.5
+        -0.5 <= y' <= 0.5
+        -0.5 <= z' <= 0.5
+
+        and, let's expand them with our earlier definitions:
+
+        -0.5 <= (2x + (sqrt(2) - 2)y + (2 + sqrt(2))z) / 4 <= 0.5
+        -0.5 <= (2x + (2 + sqrt(2))y + (sqrt(2) - 2)z) / 4 <= 0.5
+        -0.5 <= (-sqrt(2)x + y + z) / 2 <= 0.5
+
+        Now, how can we find the cross-section of this rotated cube and Oliver's plane (the xy plane)?
+        Try to figure it out, and then scroll down.
+
+        [page break]
+
+        Now, this should feel somewhat familiar; we had the same problem earlier with a normal cube.
+        Last time, we just set the z to 0, and this time we want to do something very similar.
+        Take a look at the third inequality:
+
+        -0.5 <= (2x + (sqrt(2) - 2)y + (2 + sqrt(2))z) / 4 <= 0.5
+        -0.5 <= (2x + (2 + sqrt(2))y + (sqrt(2) - 2)z) / 4 <= 0.5
+        -0.5 <= (-sqrt(2)x + y + z) / 2 <= 0.5
+
+        remember, that section is equal to z', or the z value of the rotated cube *after it is rotated
+        back into a normal cube*. We want to set the z to be 0 when it is still rotated, because that's
+        what we're gonna actually see. Clearly, the variable that does that is z. Now, if we say
+        
+        z = 0,
+
+        -0.5 <= (2x + (sqrt(2) - 2)y) / 4 <= 0.5
+        -0.5 <= (2x + (2 + sqrt(2))y) / 4 <= 0.5
+        -0.5 <= (-sqrt(2)x + y) / 2 <= 0.5
+
+
+
+
+
 
         [x, y, z][1, 0, 0 \ 0, cos(45), -sin(45) \ 0, sin(45), cos(45)] = [x, ycos(45) - zsin(45), ysin(45) + zsin(45)]
         [x, ycos(45) - zsin(45), ysin(45) + zsin(45)][cos(45), 0, sin(45) \ 0, 1, 0 \ -sin(45), 0, cos(45)] = 

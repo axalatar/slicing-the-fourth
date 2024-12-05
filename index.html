@@ -285,8 +285,71 @@
         ps. if you want to check this out on Desmos, go here[https://www.desmos.com/3d/k4wra3dwll]
     ]
 
-    Phew. For anyone who didn't check out the math section, it was a *lot*. But, we're free now!
-    
+    Phew. For anyone who didn't check out the math section, it was a *lot*. But, we're free now! If
+    you just went through that with me, maybe go grab a cup of water, take a break for a moment. I know I did.
 
+    ...but, now, we're back to it. So! You probably saw this coming, but, again, you are Oliver.
+    
+    What if there's a hypercube rotated at 45 degrees intersecting our 3D hyperplane? What would we see? 
+    Think, and then scroll down.
+
+    [page break]
+
+    ...wait, but before we get there, hold on a second. What does it mean for a hypercube to be 'rotated'?
+    This brings us to our next question-- what *is* a rotation? First, consider our world. Good ol' x, y,
+    and z. How many rotations are there? Three, of course.
+
+    But what about 2D? Let's go back to Oliver. How can he rotate?
+
+    [picture of oliver upside down]
+
+    Just one, of course. But hang on; we always talk about rotating around the x-axis, or the y-axis, or
+    the z-axis. If there's one for each axis, why can't he rotate twice-- one for x, and one for y?
+
+    The reason is that there *isn't* one rotation for each axis. At least, not usually. In reality,
+    there's one rotation for each *plane*. He has one plane; xy. We have three planes, xy, xz, and yz.
+    Our hypercube has 6: xy, xz, xw, yz, yw, and zw.
+
+    *Fun fact: only in three dimensions is there the same number of axes and planes!*
+
+    So, if that's the case, which of those planes will we rotate? For the sake of it, we'll for now say
+    xw; but, we're going to come back to this later. Now, for real this time, what do you think it'll
+    look like?
+
+    [page break]
+
+    [simulation a slider which controls the cube's w position]
+    Looks weird, right? But, thinking about what it is, it makes sense. We're starting at the midpoint
+    of the hypercube and moving towards the corners. Now, what if there's more than one rotation, like
+    how we rotated the earlier cube 45 degrees on every axis?
+
+    This hypercube is rotated by 45 degrees on xw, yw, and zw. Check it out, and try to understand why.
+    [simulation a slider which controls the cube's w position]
+
+    it seems almost similar to the simulation with the cube, right? It begins with a point, before
+    growing to a pyramid-- like the cube's triangle-- before growing into more complex and harder to
+    describe shapes as more faces intersect with the hyperplane. Then, once it reaches its midpoints,
+    it symmetrically shrinks back down to a point.
+
+    ...and, that's it. That's pretty much all I've got for you. For fun, here's a simulation where you
+    get all the control. Go wild, try to figure out what's going on.
+
+    [simulation a slider which controls the cube's w position, x pos, y pos, z pos, xy, xz, xw, yz, yw, and zw]
+
+    ...hey! You're still here! Wanna learn one more thing, before it's time to go?
+
+    Have you ever seen one of these things?
+    [image of tesseract]
+    They always call themselves 4D... but how is it? We never talked about that, right?
+    
+    Well, we've been talking about cross-sections. This is a different way of representing them, called
+    projection. It's the more common (and more boring) way of doing it; you just take all the points,
+    (x, y, z, w), and truncate them down to (x, y, z). That's it. Those diagrams are where they've
+    projected down the vertices of the hypercube, and connected them in 3D space.
+
+    If you want, you can play with one here:
+    [simulation a slider which controls the cube's w position, x pos, y pos, z pos, xy, xz, xw, yz, yw, and zw]
+
+    Thanks for checking out this explainer! It was made for Hack Club High Seas
 </body>
 </html>

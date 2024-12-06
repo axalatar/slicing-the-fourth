@@ -1,355 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Slicing the Fourth</title>
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&family=Lexend:wght@100..900&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    What is the fourth dimension? What does it mean for there to be another?
+    <h1 style="text-align: center; color: rgb(0, 76, 255); font-size:40px">Slicing the Fourth</h1>
+    <p style="text-align: center; color: gray; font-size:20px">An Exploration of Dimensions and 4D Geometry</p>
 
-    First, let's explain what a dimension is. In essence, a dimension is just a direction. Imagine a man living on a line:
+    <div>
 
-    [image here of a stick figure man standing on a line with an arrow in each direction]
+    <h2>What is the fourth dimension?</h2>
+    <p>What is the fourth dimension? What does it mean for there to be another?</p>
 
-    He can move either left or right on the line. We can understand this means he has one direction; the line is one-dimensional. Formally, any position on the line can be described with a single number. We can call that position on the line x.
+    <p>First, let's explain what a dimension is. In essence, a dimension is just a direction. Imagine a man living on a
+    line:</p>
+
+    <div class="placeholder-image">[image here of a stick figure man standing on a line with an arrow in each direction]</div>
+
+    
+    <p>He can move either left or right on the line. We can understand this means he has one direction; the line is
+        one-dimensional. Formally, any position on the line can be described with a single number. We can call that position
+        on the line x.</p>
+    
+
+    <p>Now, imagine we give him a ladder that he can move along his line.</p>
+
+    <div class="placeholder-image">[image here of the stick figure man saying ‘yay’ with the ladder on the arrow]</div>
+
+    <p>He can now move left and right, and up and down. There are two directions; he can now move two-dimensionally. To
+    describe any one position now, we need two numbers, x like before, as well as a new number y to show his ‘height’ on
+    the ladder.</p>
 
 
-    Now, imagine we give him a ladder that he can move along his line.
-
-    [image here of the stick figure man saying ‘yay’ with the ladder on the arrow]
-
-    He can now move left and right, and up and down. There are two directions; he can now move two-dimensionally. To describe any one position now, we need two numbers, x like before, as well as a new number y to show his ‘height’ on the ladder.
-
-
-    This should all feel very familiar, as you’ve seen 2d graphs like this 
-    in every math class for as long as you can remember. How does this help 
-    us understand 4d objects? Well, consider how Oliver (that’s his name now!) 
+    <p>This should all feel very familiar, as you’ve seen 2d graphs like this
+    in every math class for as long as you can remember. How does this help
+    us understand 4d objects? Well, consider how Oliver (that’s his name now!)
     thinks about you. Yes, you! Looking at him on the screen, you're viewing him
     from another direction, which we can call the z axis (an 'axis' just means a direction).
     He can't turn towards the screen, so from his perspective you don't exist. However, what
-    happens if you put your hand next to your screen?
+    happens if you put your hand next to your screen?</p>
 
-    [image here of a hand on the side of a laptop screen, with a picture of stick figure man on it]
-    Come on, do it! Really!
+    <div class="placeholder-image">    [image here of a hand on the side of a laptop screen, with a picture of stick figure man on it]</div>
+    <div style="width: 100%; text-align: center;"><i>Come on, do it! Really!</i></div>
 
 
-    You're not flat, but Oliver can still see the part of your hand that intersects with the area
-    he can see, which is the flat plane of the screen. Imagining the intersection of your finger
-    and the plane, you can see it's just something like a circle. We call this the cross-section
-    of the plane and the finger.
+    <p>You're not flat, but Oliver can still see the part of your hand that intersects with the area
+        he can see, which is the flat plane of the screen. Imagining the intersection of your finger
+        and the plane, you can see it's just something like a circle. We call this the cross-section
+        of the plane and the finger.</p>
 
-    [image here of the laptop screen being extended to the finger, and the intersecting circle being drawn out]
+    <div class="placeholder-image">        [image here of the laptop screen being extended to the finger, and the intersecting circle being drawn out]
+    </div>
 
-    Let's say we want to show Oliver what a cube is
-    (you could use a more complex shape, but the math will get harder).
+    <p>Let's say we want to show Oliver what a cube is
+    (you could use a more complex shape, but the math will get harder).</p>
 
-    How could we do it? Well, imagine we take a magic floating cube next to the screen. If we
+    <p>How could we do it? Well, imagine we take a magic floating cube next to the screen. If we
     move it fully from one side to the other, Oliver could see the whole thing, just through the
-    individual cross-sections.
+    individual cross-sections.</p>
 
-    ...but to him, what would it look like? Try to figure it out on your own before continuing.
-    [page break here]
-    [simulation with a plane and a cube placed towards the screen. there is a slider which controls the cube's z position. the intersection of the two geometries is drawn separately]
+    <p>...but to him, what would it look like? Try to figure it out on your own before continuing.</p>
+    
+    <hr class="break">
+    
+    <div class="placeholder-image">        [simulation with a plane and a cube placed towards the screen. there is a slider which controls the cube's z
+        position. the intersection of the two geometries is drawn separately] </div>
 
-    It's a square. It makes sense; the cube is aligned to the plane, so when the cube enters or leaves
+    
+
+    <p>It's a square. It makes sense; the cube is aligned to the plane, so when the cube enters or leaves
     the plane, all levels of the cube at that z-level enter/leave at the same time. Mathematically,
     we can see this by looking at the equation of the cube and plane. If we imagine Oliver's house
-    to be the origin (where x, y, and z = 0) and the cube to be a 'unit cube' where 
-    the side length = 1, then we can say the plane is defined as
-    
+    to be the origin (where x, y, and z = 0) and the cube to be a 'unit cube' where
+    the side length = 1, then we can say the plane is defined as</p>
+
     z = 0
 
     and the cube is defined as
-    -0.5 <= x <= 0.5
-    -0.5 <= y <= 0.5
-    -0.5 <= z <= 0.5
+    -0.5 <= x <=0.5 -0.5 <=y <=0.5 -0.5 <=z <=0.5 so, to find the cross-section we can just plug the z value from the
+        first equation to the second: -0.5 <=x <=0.5 -0.5 <=y <=0.5 and, this is the equation of a square. Perfect! Now,
+        let's get back to the point. What is the fourth dimension? First, extend your knowledge from the prior exercise
+        to your own world-- the real world. You are Oliver. What does that mean? Well, try to imagine our entire
+        universe-- everything, everywhere-- exists on a flat, three-dimensinoal 'hyperplane' (plane is specific to 2D).
+        Now, there are still our three axes (x y and z), but there is also a fourth one, which we can call w. As Oliver,
+        you can't turn towards w, but you can still understand it's there by extending your knowledge of how a 2D
+        creature might exist in a 3D world. But, bad news; the magic floating unit cube is back, and now it has another
+        dimension! Now, instead of just being a cube, it's a 4D hypercube, also called a tesseract. Rather than a cube,
+        which is made up of six squares, or a square, which is made up of 4 lines, a tesseract is made of 8 cubes. Do
+        you see the pattern? [on click: try to figure out why. how do you construct a cube from squares, or a square
+        from lines?] Mathematically, it can be described as -0.5 <=x <=0.5 -0.5 <=y <=0.5 -0.5 <=z <=0.5 -0.5 <=w <=0.5
+        So... what would you see? What object would appear in front of you as the hypercube moved through the w-axis?
+        [page break here] [simulation which shows the intersection of a hypercube and a 3d plane. there is a slider
+        which controls the cube's w position. the intersection of the two geometries is drawn in the center of the
+        screen] You probably could've seen this coming, but it's a cube. Setting w to zero with the same logic we used
+        earlier, you can see the cross-section is -0.5 <=x <=0.5 -0.5 <=y <=0.5 -0.5 <=z <=0.5 as you can probably tell,
+        this is the equation of a cube. Perfect. So, great. We can make cubes appear and disappear. But what about the
+        *fourth dimension*? All those cool gifs of weird rotating geometries labeled tesseracts? What about those? Well,
+        first let's revisit Oliver. [image of Oliver waving hi] You might have noticed an issue with our
+        earlier 'simulations' of the intersections. It assumes that the cubes are always aligned perfectly with the
+        planes. But, what if that's not the case? [image of the cube next to Oliver's plane, now rotated 45 degrees
+        around each axis so one vertex is facing the plane] this is the same cube, rotated 45 degrees around each axis.
+        Imagine what Oliver would see now, as the plane moves through the z-axis. Try to figure it out, and then test
+        your thoughts: [simulation with a plane and the rotated cube placed towards the screen. there is a slider which
+        controls the cube's z position. the intersection of the two geometries is drawn separately] first, there is a
+        single point, which grows into a triangle, then grows into more complex shapes, before shrinking back into a
+        triangle, then to a point, then disappearing. Just looking at the shape of the rotated cube, it makes sense; the
+        plane first intersects the tip, then intersects along the pyramidical section of the cube, then begins reaching
+        the other edges of the cube which add more complex sides, until it reaches the midpoint; and then begins
+        shrinking on the other side, which is opposite to the first. How about the math, though? [on click: First, we
+        know the cube can be represented as -0.5 <=x <=0.5 -0.5 <=y <=0.5 -0.5 <=z <=0.5 but what about the rotations?
+        Well, for those of you who haven't learned matrices yet, there's a great math tool called a rotation matrix. It
+        lets you rotate a position around the origin counterclockwise by some angle on some axis. To use it, we just
+        need to take the three matrices: R_x=[1, 0, 0 \ 0, cos(theta), -sin(theta) \ 0, sin(theta), cos(theta)]
+        R_y=[cos(theta), 0, sin(theta) \ 0, 1, 0 \ -sin(theta), 0, cos(theta)] R_z=[cos(theta), -sin(theta), 0 \
+        sin(theta), cos(theta), 0 \ 0, 0, 1] and multiply our coordinates [x \ y \ z] by them. We need to be careful the
+        order we apply them; matrix multiplication is not commutative, meaning order *does* matter. If we do R_z * R_y *
+        R_x * [x \ y \ z] for every subsequent rotation, the axes we are rotating around will *also be rotated*. We
+        don't want that, so instead we will use R_x * R_y * R_z * [x \ y \ z] which is an *extrinsic* rotation; one that
+        uses fixed axes. To see why, see here
+        [https://math.stackexchange.com/questions/1137745/proof-of-the-extrinsic-to-intrinsic-rotation-transform] Now,
+        let's multiply these matrices: [1, 0, 0 \ 0, cos(theta), -sin(theta) \ 0, sin(theta), cos(theta)][cos(theta), 0,
+        sin(theta) \ 0, 1, 0 \ -sin(theta), 0, cos(theta)][cos(theta), -sin(theta), 0 \ sin(theta), cos(theta), 0 \ 0,
+        0, 1][x \ y \ z]=[xcos^2(theta) - ysin(theta)cos(theta) + zsin(theta) \
+        x(sin^2(theta)cos(theta)+sin(theta)cos(theta)) + y(cos^2(theta)-sin^3(theta)) - zsin(theta)cos(theta) \
+        x(sin^2(theta)-sin(theta)cos^2(theta)) + y(sin^2(theta)cos(theta)+sin(theta)cos(theta)) + zcos^2(theta)] It's a
+        bit of a beast, but remember that our theta is 45 degrees, and that sin(45)=cos(45)=sqrt(2) / 2. Using that
+        property and simplifying gives us this final vector:=[(x - y + sqrt(2)z) / 2 \ ((2 + sqrt(2))x - (sqrt(2) - 2)y
+        - 2z) / 4 \ (-(sqrt(2) - 2)x + (2 + sqrt(2))y + 2z) / 4] So, this tells us that x'=(x - y + sqrt(2)z) / 2 y'=((2
+        + sqrt(2))x - (sqrt(2) - 2)y - 2z) / 4 z'=(-(sqrt(2) - 2)x + (2 + sqrt(2))y + 2z) / 4 The apostrophe means that
+        those are the rotated positions. So, great! We have the system of equations that will give us a position rotated
+        by 45 degrees on each axis. Now, how do we turn this into a rotated cube? Try to figure it out, and then scroll
+        down! [page break] Well, first, look at our earlier inequalities we used to describe a cube: -0.5 <=x <=0.5 -0.5
+        <=y <=0.5 -0.5 <=z <=0.5 What that's saying is that the x, y, and z values have to be between -0.5 and 0.5; this
+        forms a cube with side length 1 centered at (0, 0, 0). Great. We already know this. But, what if instead, we
+        said this: -0.5 <=x' <=0.5 -0.5 <=y' <=0.5 -0.5 <=z' <=0.5 A little weirder, but it still looks right. But think
+        about what it really means; x', y', and z' are all defined *in terms of* x, y, and z. This means what we're
+        really solving for is the x, y, and z values which, when rotated by theta, form a normal cube. Understand the
+        difference of that and finding the x, y, and z values which form a cube rotated by theta. There's a trick to it,
+        though; there's only one cube which, when rotated by theta, is a normal cube. It's a cube rotated by -theta.
+        That way, the rotations cancel out and the cube is back to where it started. This means that when we set the
+        theta, we're actually rotating the cube by -theta. ...however, we don't really need to worry about this. Careful
+        readers would have noticed that earlier, I said that rotation matrices rotate *counterclockwise*. In reality, we
+        want to be rotating clockwise; so, reversing the direction of the rotation is actually correct in this case.
+        Now, great! We have these inequalities, which create our rotated cube: -0.5 <=x' <=0.5 -0.5 <=y' <=0.5 -0.5 <=z'
+        <=0.5 and, let's expand them with our earlier definitions: -0.5 <=(x - y + sqrt(2)z) / 2 <=0.5 -0.5 <=((2 +
+        sqrt(2))x - (sqrt(2) - 2)y - 2z) / 4 <=0.5 -0.5 <=(-(sqrt(2) - 2)x + (2 + sqrt(2))y + 2z) / 4 <=0.5 This is the
+        full system of equations of our rotated cube. Now, how can we find the cross-section of this rotated cube and
+        Oliver's plane (the xy plane)? Try to figure it out, and then scroll down. [page break] Now, this should feel
+        somewhat familiar; we had the same problem earlier with a normal cube. Last time, we just set the z to 0, and
+        this time we want to do something very similar. Take a look at the third inequality: -0.5 <=(x - y + sqrt(2)z) /
+        2 <=0.5 -0.5 <=((2 + sqrt(2))x - (sqrt(2) - 2)y - 2z) / 4 <=0.5 -0.5 <=(-(sqrt(2) - 2)x + (2 + sqrt(2))y + 2z) /
+        4 <=0.5 remember, that section is equal to z', or the z value of the rotated cube *after it is rotated back into
+        a normal cube*. We want to set the z to be 0 when it is still rotated, because that's what we're gonna actually
+        see. Clearly, the variable that does that is z. Now, if we say z=0, -0.5 <=(x - y) / 2 <=0.5 -0.5 <=((2 +
+        sqrt(2))x - (sqrt(2) - 2)y) / 4 <=0.5 -0.5 <=(-(sqrt(2) - 2)x + (2 + sqrt(2))y) / 4 <=0.5 This is some shape in
+        terms of x and y, which immediately can tell us that it's a shape Oliver can see. We could break this down
+        further, but at this point it's easiest to just plot it and find out. Let's see! [picture of the shape plotted
+        in desmos] It looks like some sort of irregular hexagon. Interesting! *You could have figured out this would
+        have been some sort of hexagon before we did any math-- for an extra challenge, figure out how!* [picture of
+        oliver looking at the weird shape] If we shift the shape around on the z-axis, we can see the different
+        sections. You can acheive this by adding another term to the equations, to represent the z-shift. We'll call it
+        k. In our new system, -0.5 <=(x - y + sqrt(2)(z-h)) / 2 <=0.5 -0.5 <=((2 + sqrt(2))x - (sqrt(2) - 2)y - 2(z-h))
+        / 4 <=0.5 -0.5 <=(-(sqrt(2) - 2)x + (2 + sqrt(2))y + 2(z-h)) / 4 <=0.5 and with z=0, -0.5 <=(x - y - sqrt(2)h) /
+        2 <=0.5 -0.5 <=((2 + sqrt(2))x - (sqrt(2) - 2)y + 2h) / 4 <=0.5 -0.5 <=(-(sqrt(2) - 2)x + (2 + sqrt(2))y - 2h) /
+        4 <=0.5 try playing around with this in Desmos! This is already a massive block of math so I'm going to move
+        onto different stuff now, but have some fun with it! Try looking at different rotations, or even different
+        shapes! ps. if you want to check this out on Desmos, go here[https://www.desmos.com/3d/k4wra3dwll] ] Phew. For
+        anyone who didn't check out the math section, it was a *lot*. But, we're free now! If you just went through that
+        with me, maybe go grab a cup of water, take a break for a moment. I know I did. ...but, now, we're back to it.
+        So! You probably saw this coming, but, again, you are Oliver. What if there's a hypercube rotated at 45 degrees
+        intersecting our 3D hyperplane? What would we see? Think, and then scroll down. [page break] ...wait, but before
+        we get there, hold on a second. What does it mean for a hypercube to be 'rotated' ? This brings us to our next
+        question-- what *is* a rotation? First, consider our world. Good ol' x, y, and z. How many rotations are there?
+        Three, of course. But what about 2D? Let's go back to Oliver. How can he rotate? [picture of oliver upside down]
+        Just one, of course. But hang on; we always talk about rotating around the x-axis, or the y-axis, or the z-axis.
+        If there's one for each axis, why can't he rotate twice-- one for x, and one for y? The reason is that there
+        *isn't* one rotation for each axis. At least, not usually. In reality, there's one rotation for each *plane*. He
+        has one plane; xy. We have three planes, xy, xz, and yz. Our hypercube has 6: xy, xz, xw, yz, yw, and zw. *Fun
+        fact: only in three dimensions is there the same number of axes and planes!* So, if that's the case, which of
+        those planes will we rotate? For the sake of it, we'll for now say xw; but, we're going to come back to this
+        later. Now, for real this time, what do you think it'll look like? [page break] [simulation a slider which
+        controls the cube's w position] Looks weird, right? But, thinking about what it is, it makes sense. We're
+        starting at the midpoint of the hypercube and moving towards the corners. Now, what if there's more than one
+        rotation, like how we rotated the earlier cube 45 degrees on every axis? This hypercube is rotated by 45 degrees
+        on xw, yw, and zw. Check it out, and try to understand why. [simulation a slider which controls the cube's w
+        position] it seems almost similar to the simulation with the cube, right? It begins with a point, before growing
+        to a pyramid-- like the cube's triangle-- before growing into more complex and harder to describe shapes as more
+        faces intersect with the hyperplane. Then, once it reaches its midpoints, it symmetrically shrinks back down to
+        a point. ...and, that's it. That's pretty much all I've got for you. For fun, here's a simulation where you get
+        all the control. Go wild, try to figure out what's going on. [simulation a slider which controls the cube's w
+        position, x pos, y pos, z pos, xy, xz, xw, yz, yw, and zw] ...hey! You're still here! Wanna learn one more
+        thing, before it's time to go? Have you ever seen one of these things? [image of tesseract] They always call
+        themselves 4D... but how is it? We never talked about that, right? Well, we've been talking about
+        cross-sections. This is a different way of representing them, called projection. It's the more common (and more
+        boring) way of doing it; you just take all the points, (x, y, z, w), and truncate them down to (x, y, z). That's
+        it. Those diagrams are where they've projected down the vertices of the hypercube, and connected them in 3D
+        space. If you want, you can play with one here: [simulation a slider which controls the cube's w position, x
+        pos, y pos, z pos, xy, xz, xw, yz, yw, and zw] Thanks for checking out this explainer! It was made for Hack Club
+        High Seas 
+    </div>
+    </body>
 
-    so, to find the cross-section we can just plug the z value from the first equation to the second:
-    
-    -0.5 <= x <= 0.5
-    -0.5 <= y <= 0.5
 
-    and, this is the equation of a square. Perfect!
-    
-
-    Now, let's get back to the point. What is the fourth dimension? First, extend your knowledge
-    from the prior exercise to your own world-- the real world. You are Oliver.
-
-    What does that mean? Well, try to imagine our entire universe-- everything, everywhere--
-    exists on a flat, three-dimensinoal 'hyperplane' (plane is specific to 2D).
-    Now, there are still our three axes (x y and z), but there is also a fourth one, which we
-    can call w. As Oliver, you can't turn towards w, but you can still understand it's there
-    by extending your knowledge of how a 2D creature might exist in a 3D world.
-
-    But, bad news; the magic floating unit cube is back, and now it has another dimension!
-    Now, instead of just being a cube, it's a 4D hypercube, also called a tesseract. Rather than
-    a cube, which is made up of six squares, or a square, which is made up of 4 lines, a tesseract
-    is made of 8 cubes. 
-    
-    Do you see the pattern? [on click: try to figure out why. how do you construct a cube from squares, or a square from lines?]
-
-    Mathematically, it can be described as 
-
-    -0.5 <= x <= 0.5
-    -0.5 <= y <= 0.5
-    -0.5 <= z <= 0.5
-    -0.5 <= w <= 0.5
-
-    So... what would you see? What object would appear in front of you as the hypercube moved through
-    the w-axis?
-    
-    [page break here]
-    [simulation which shows the intersection of a hypercube and a 3d plane. there is a slider which controls the cube's w position. the intersection of the two geometries is drawn in the center of the screen]
-
-    You probably could've seen this coming, but it's a cube. Setting w to zero with the same logic we used earlier,
-    you can see the cross-section is 
-
-    -0.5 <= x <= 0.5
-    -0.5 <= y <= 0.5
-    -0.5 <= z <= 0.5
-
-    as you can probably tell, this is the equation of a cube. Perfect.
-
-
-    So, great. We can make cubes appear and disappear. But what about the *fourth dimension*?
-    All those cool gifs of weird rotating geometries labeled tesseracts? What about those?
-
-    Well, first let's revisit Oliver.
-
-    [image of Oliver waving hi]
-
-    You might have noticed an issue with our earlier 'simulations' of the intersections.
-    It assumes that the cubes are always aligned perfectly with the planes. But, what if that's not the case?
-
-    [image of the cube next to Oliver's plane, now rotated 45 degrees around each axis so one vertex is facing the plane]
-
-    this is the same cube, rotated 45 degrees around each axis. Imagine what Oliver would see now, as the
-    plane moves through the z-axis. Try to figure it out, and then test your thoughts:
-
-    [simulation with a plane and the rotated cube placed towards the screen. there is a slider which controls the cube's z position. the intersection of the two geometries is drawn separately]
-
-    first, there is a single point, which grows into a triangle, then grows into more complex shapes,
-    before shrinking back into a triangle, then to a point, then disappearing.
-
-    Just looking at the shape of the rotated cube, it makes sense; the plane first intersects the tip,
-    then intersects along the pyramidical section of the cube, then begins reaching the other edges
-    of the cube which add more complex sides, until it reaches the midpoint; and then begins shrinking
-    on the other side, which is opposite to the first.
-
-    How about the math, though? [on click:
-        First, we know the cube can be represented as 
-        
-        -0.5 <= x <= 0.5
-        -0.5 <= y <= 0.5
-        -0.5 <= z <= 0.5
-
-        but what about the rotations?
-        Well, for those of you who haven't learned matrices yet, there's a great math tool called
-        a rotation matrix. It lets you rotate a position around the origin counterclockwise by some 
-        angle on some axis.
-
-        To use it, we just need to take the three matrices:
-        R_x = [1, 0, 0 \ 0, cos(theta), -sin(theta) \ 0, sin(theta), cos(theta)]
-        R_y = [cos(theta), 0, sin(theta) \ 0, 1, 0 \ -sin(theta), 0, cos(theta)]
-        R_z = [cos(theta), -sin(theta), 0 \ sin(theta), cos(theta), 0 \ 0, 0, 1]
-
-        and multiply our coordinates [x \ y \ z] by them. We need to be careful the order we apply them;
-        matrix multiplication is not commutative, meaning order *does* matter. If we do 
-        R_z * R_y * R_x * [x \ y \ z]
-        for every subsequent rotation, the axes we are rotating around will *also be rotated*. We don't
-        want that, so instead we will use
-        R_x * R_y * R_z * [x \ y \ z]
-        which is an *extrinsic* rotation; one that uses fixed axes. To see why, see here [https://math.stackexchange.com/questions/1137745/proof-of-the-extrinsic-to-intrinsic-rotation-transform]
-        Now, let's multiply these matrices:
-        
-
-        [1, 0, 0 \ 0, cos(theta), -sin(theta) \ 0, sin(theta), cos(theta)][cos(theta), 0, sin(theta) \ 0, 1, 0 \ -sin(theta), 0, cos(theta)][cos(theta), -sin(theta), 0 \ sin(theta), cos(theta), 0 \ 0, 0, 1][x \ y \ z]
-        = [xcos^2(theta) - ysin(theta)cos(theta) + zsin(theta) \ x(sin^2(theta)cos(theta)+sin(theta)cos(theta)) + y(cos^2(theta)-sin^3(theta)) - zsin(theta)cos(theta) \ x(sin^2(theta)-sin(theta)cos^2(theta)) + y(sin^2(theta)cos(theta)+sin(theta)cos(theta)) + zcos^2(theta)]
-
-        It's a bit of a beast, but remember that our
-        theta is 45 degrees, and that sin(45) = cos(45) = sqrt(2) / 2. Using that property and simplifying
-        gives us this final vector:
-
-        = [(x - y + sqrt(2)z) / 2 \ ((2 + sqrt(2))x - (sqrt(2) - 2)y - 2z) / 4 \ (-(sqrt(2) - 2)x + (2 + sqrt(2))y + 2z) / 4]
-
-        So, this tells us that
-
-        x' = (x - y + sqrt(2)z) / 2
-        y' = ((2 + sqrt(2))x - (sqrt(2) - 2)y - 2z) / 4
-        z' = (-(sqrt(2) - 2)x + (2 + sqrt(2))y + 2z) / 4
-
-        The apostrophe means that those are the rotated positions. So, great! We have the system of
-        equations that will give us a position rotated by 45 degrees on each axis. Now, how do we turn
-        this into a rotated cube? Try to figure it out, and then scroll down!
-
-        [page break]
-
-        Well, first, look at our earlier inequalities we used to describe a cube:
-
-        -0.5 <= x <= 0.5
-        -0.5 <= y <= 0.5
-        -0.5 <= z <= 0.5
-
-        What that's saying is that the x, y, and z values have to be between -0.5 and 0.5; this forms
-        a cube with side length 1 centered at (0, 0, 0). Great. We already know this. But, what if
-        instead, we said this:
-
-        -0.5 <= x' <= 0.5
-        -0.5 <= y' <= 0.5
-        -0.5 <= z' <= 0.5
-
-        A little weirder, but it still looks right. But think about what it really means; x', y', and z'
-        are all defined *in terms of* x, y, and z. This means what we're really solving for is the 
-        x, y, and z values which, when rotated by theta, form a normal cube. Understand the
-        difference of that and finding the x, y, and z values which form a cube rotated by theta.
-        There's a trick to it, though; there's only one cube which, when rotated by theta, is a normal
-        cube. It's a cube rotated by -theta. That way, the rotations cancel out and the cube is back
-        to where it started. This means that when we set the theta, we're actually rotating the cube
-        by -theta.
-
-        ...however, we don't really need to worry about this. Careful readers would have noticed that
-        earlier, I said that rotation matrices rotate *counterclockwise*. In reality, we want to
-        be rotating clockwise; so, reversing the direction of the rotation is actually correct in this
-        case.
-
-        Now, great! We have these inequalities, which create our rotated cube:
-
-        -0.5 <= x' <= 0.5
-        -0.5 <= y' <= 0.5
-        -0.5 <= z' <= 0.5
-
-        and, let's expand them with our earlier definitions:
-
-        -0.5 <= (x - y + sqrt(2)z) / 2 <= 0.5
-        -0.5 <= ((2 + sqrt(2))x - (sqrt(2) - 2)y - 2z) / 4 <= 0.5
-        -0.5 <= (-(sqrt(2) - 2)x + (2 + sqrt(2))y + 2z) / 4 <= 0.5
-
-        This is the full system of equations of our rotated cube. Now, how can we find 
-        the cross-section of this rotated cube and Oliver's plane (the xy plane)? Try to figure it out, 
-        and then scroll down.
-
-        [page break]
-
-        Now, this should feel somewhat familiar; we had the same problem earlier with a normal cube.
-        Last time, we just set the z to 0, and this time we want to do something very similar.
-        Take a look at the third inequality:
-
-        -0.5 <= (x - y + sqrt(2)z) / 2 <= 0.5
-        -0.5 <= ((2 + sqrt(2))x - (sqrt(2) - 2)y - 2z) / 4 <= 0.5
-        -0.5 <= (-(sqrt(2) - 2)x + (2 + sqrt(2))y + 2z) / 4 <= 0.5
-
-        remember, that section is equal to z', or the z value of the rotated cube *after it is rotated
-        back into a normal cube*. We want to set the z to be 0 when it is still rotated, because that's
-        what we're gonna actually see. Clearly, the variable that does that is z. Now, if we say
-        
-        z = 0,
-
-        -0.5 <= (x - y) / 2 <= 0.5
-        -0.5 <= ((2 + sqrt(2))x - (sqrt(2) - 2)y) / 4 <= 0.5
-        -0.5 <= (-(sqrt(2) - 2)x + (2 + sqrt(2))y) / 4 <= 0.5
-
-        This is some shape in terms of x and y, which immediately can tell us that it's a shape Oliver
-        can see. We could break this down further, but at this point it's easiest to just plot it and
-        find out. Let's see!
-
-        [picture of the shape plotted in desmos]
-
-        It looks like some sort of irregular hexagon. Interesting!
-        *You could have figured out this would have been some sort of hexagon before we did any math-- for an extra challenge, figure out how!*
-
-        [picture of oliver looking at the weird shape]
-
-        If we shift the shape around on the z-axis, we can see the different sections. You can acheive
-        this by adding another term to the equations, to represent the z-shift. We'll call it k.
-        In our new system,
-
-        -0.5 <= (x - y + sqrt(2)(z-h)) / 2 <= 0.5
-        -0.5 <= ((2 + sqrt(2))x - (sqrt(2) - 2)y - 2(z-h)) / 4 <= 0.5
-        -0.5 <= (-(sqrt(2) - 2)x + (2 + sqrt(2))y + 2(z-h)) / 4 <= 0.5
-
-        and with z = 0,
-
-        -0.5 <= (x - y - sqrt(2)h) / 2 <= 0.5
-        -0.5 <= ((2 + sqrt(2))x - (sqrt(2) - 2)y + 2h) / 4 <= 0.5
-        -0.5 <= (-(sqrt(2) - 2)x + (2 + sqrt(2))y - 2h) / 4 <= 0.5
-
-        try playing around with this in Desmos! This is already a massive block of math so I'm going
-        to move onto different stuff now, but have some fun with it! Try looking at different rotations,
-        or even different shapes!
-
-        ps. if you want to check this out on Desmos, go here[https://www.desmos.com/3d/k4wra3dwll]
-    ]
-
-    Phew. For anyone who didn't check out the math section, it was a *lot*. But, we're free now! If
-    you just went through that with me, maybe go grab a cup of water, take a break for a moment. I know I did.
-
-    ...but, now, we're back to it. So! You probably saw this coming, but, again, you are Oliver.
-    
-    What if there's a hypercube rotated at 45 degrees intersecting our 3D hyperplane? What would we see? 
-    Think, and then scroll down.
-
-    [page break]
-
-    ...wait, but before we get there, hold on a second. What does it mean for a hypercube to be 'rotated'?
-    This brings us to our next question-- what *is* a rotation? First, consider our world. Good ol' x, y,
-    and z. How many rotations are there? Three, of course.
-
-    But what about 2D? Let's go back to Oliver. How can he rotate?
-
-    [picture of oliver upside down]
-
-    Just one, of course. But hang on; we always talk about rotating around the x-axis, or the y-axis, or
-    the z-axis. If there's one for each axis, why can't he rotate twice-- one for x, and one for y?
-
-    The reason is that there *isn't* one rotation for each axis. At least, not usually. In reality,
-    there's one rotation for each *plane*. He has one plane; xy. We have three planes, xy, xz, and yz.
-    Our hypercube has 6: xy, xz, xw, yz, yw, and zw.
-
-    *Fun fact: only in three dimensions is there the same number of axes and planes!*
-
-    So, if that's the case, which of those planes will we rotate? For the sake of it, we'll for now say
-    xw; but, we're going to come back to this later. Now, for real this time, what do you think it'll
-    look like?
-
-    [page break]
-
-    [simulation a slider which controls the cube's w position]
-    Looks weird, right? But, thinking about what it is, it makes sense. We're starting at the midpoint
-    of the hypercube and moving towards the corners. Now, what if there's more than one rotation, like
-    how we rotated the earlier cube 45 degrees on every axis?
-
-    This hypercube is rotated by 45 degrees on xw, yw, and zw. Check it out, and try to understand why.
-    [simulation a slider which controls the cube's w position]
-
-    it seems almost similar to the simulation with the cube, right? It begins with a point, before
-    growing to a pyramid-- like the cube's triangle-- before growing into more complex and harder to
-    describe shapes as more faces intersect with the hyperplane. Then, once it reaches its midpoints,
-    it symmetrically shrinks back down to a point.
-
-    ...and, that's it. That's pretty much all I've got for you. For fun, here's a simulation where you
-    get all the control. Go wild, try to figure out what's going on.
-
-    [simulation a slider which controls the cube's w position, x pos, y pos, z pos, xy, xz, xw, yz, yw, and zw]
-
-    ...hey! You're still here! Wanna learn one more thing, before it's time to go?
-
-    Have you ever seen one of these things?
-    [image of tesseract]
-    They always call themselves 4D... but how is it? We never talked about that, right?
-    
-    Well, we've been talking about cross-sections. This is a different way of representing them, called
-    projection. It's the more common (and more boring) way of doing it; you just take all the points,
-    (x, y, z, w), and truncate them down to (x, y, z). That's it. Those diagrams are where they've
-    projected down the vertices of the hypercube, and connected them in 3D space.
-
-    If you want, you can play with one here:
-    [simulation a slider which controls the cube's w position, x pos, y pos, z pos, xy, xz, xw, yz, yw, and zw]
-
-    Thanks for checking out this explainer! It was made for Hack Club High Seas
-</body>
 </html>

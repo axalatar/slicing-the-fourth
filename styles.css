@@ -1,0 +1,27 @@
+body {
+    font-family: "Kumbh Sans";
+    color: rgb(50, 50, 50);
+}
+
+p, h2 {
+    margin-left: 18%; 
+    margin-right: 18%;
+}
+
+.placeholder-image {
+    height: 300px;
+    width: 500px;
+    background-color: rgb(213, 225, 225);
+    text-align: center;
+    margin: auto;
+    display:flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.break {
+    margin-bottom: 250px;
+    margin-top: 250px;
+    width: 60%;
+}

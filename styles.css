@@ -25,3 +25,11 @@ p, h2 {
     margin-top: 250px;
     width: 60%;
 }
+
+.tip {
+    margin-left: 18%; 
+    margin-right: 18%;
+    background-color: rgb(237, 234, 234);
+    border-left: 5px solid blue;
+    padding: 10px;
+}

@@ -20,6 +20,16 @@ p, h2 {
     padding: 10px;
 }
 
+.simulation {
+    margin: auto;
+    width: 500px;
+    background-color: rgb(213, 225, 225);
+}
+
+.sim-canvas {
+    margin: auto;
+}
+
 .break {
     margin-bottom: 250px;
     margin-top: 250px;

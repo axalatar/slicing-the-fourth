@@ -92,8 +92,10 @@
         
         <div class="simulation">
             <canvas class="sim-canvas" height=300 width=500 id="cube-z-intersection"></canvas>
-            <input type="range" min="-3" max="3" value="3" step="0.1" class="slider" id="cube-z-intersection-z">
             <label for="cube-z-intersection-z">Z</label>
+            <input type="range" min="-3" max="3" value="3" step="0.1" class="slider" id="cube-z-intersection-z" oninput="this.nextElementSibling.value = this.value">
+            <output>3</output>
+
             <script type="module" src="./simulations/cube-z-intersection.js"></script>
         </div>
 
@@ -170,10 +172,11 @@
         <hr class="break">
 
         <div class="simulation">
-            <canvas class="sim-canvas" height=300 width=500 id="cube-b-intersection"></canvas>
-            <input type="range" min="-3" max="3" value="3" step="0.1" class="slider" id="cube-z-intersection-b">
-            <label for="cube-z-intersection-b">Z</label>
-            <script type="module" src="./simulations/cube-b-intersection.js"></script>
+            <canvas class="sim-canvas" height=300 width=500 id="hypercube-basic-intersection"></canvas>
+            <label for="hypercube-basic-intersection-w">W</label>
+            <input type="range" min="-3" max="3" value="3" step="0.1" class="slider" id="hypercube-basic-intersection-w" oninput="this.nextElementSibling.value = this.value">
+            <output>3</output>
+            <script type="module" src="./simulations/hypercube-basic-intersection.js"></script>
             <!-- simulation which shows the intersection of a hypercube and a 3d plane. there is
             a
             slider which controls the cube's w position. the intersection of the two geometries is drawn in the center
@@ -204,9 +207,20 @@
         <p>this is the same cube,
             rotated 45 degrees around each axis. Imagine what Oliver would see now, as the plane moves through the
             z-axis. Try to figure it out, and then test your thoughts:</p>
-        <div class="placeholder-image">[simulation with a plane and the rotated cube
+        
+            <div class="simulation">
+                <canvas class="sim-canvas" height=300 width=500 id="cube-rotated-intersection"></canvas>
+                <label for="cube-rotated-intersection-z">Z</label>
+                <input type="range" min="-3" max="3" value="3" step="0.1" class="slider" id="cube-rotated-intersection-z" oninput="this.nextElementSibling.value = this.value">
+                <output>3</output>
+                <br>
+                <input type="checkbox" id="hide-rotated-cube">
+                <label for="hide-rotated-cube">Hide cube (only display intersection on z-axis)</label>
+                <script type="module" src="./simulations/cube-rotated-intersection.js"></script>
+                <!-- [simulation with a plane and the rotated cube
             placed towards the screen. there is a slider which controls the cube's z position. the intersection of the
-            two geometries is drawn separately]</div>
+            two geometries is drawn separately] -->
+            </div>
         <p>first, there is a single point, which grows into a triangle, then grows
             into more complex shapes, before shrinking back into a triangle, then to a point, then disappearing. Just
             looking at the shape of the rotated cube, it makes sense; the plane first intersects the tip, then

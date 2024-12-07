@@ -1,6 +1,5 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { ConvexGeometry } from 'three/addons/geometries/ConvexGeometry.js';
 
 const canvas = document.getElementById("cube-rotated-intersection");
 const slider = document.getElementById("cube-rotated-intersection-z");
@@ -20,14 +19,17 @@ const material = new THREE.MeshStandardMaterial({color: 0x9797FF});
 
 const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
 
-boxGeometry.rotateZ(Math.PI / 4);
-boxGeometry.rotateY(Math.PI / 4);
-boxGeometry.rotateX(Math.PI / 4);
+
 
 const cube = new THREE.Mesh(boxGeometry, material);
+cube.rotateOnWorldAxis(new THREE.Vector3(1, 0, 0), -Math.PI/4)
+cube.rotateOnWorldAxis(new THREE.Vector3(0, 1, 0), -Math.PI/4)
+cube.rotateOnWorldAxis(new THREE.Vector3(0, 0, 1), -Math.PI/4)
+
+
 scene.add(cube);
 
-const planeGrid = new THREE.GridHelper(100, 1000)
+const planeGrid = new THREE.GridHelper(100, 100)
 planeGrid.rotateX(Math.PI/2);
 scene.add(planeGrid)
 
@@ -56,23 +58,17 @@ const lines = [
   [-(Math.SQRT2-2)/4, (2+Math.SQRT2)/4, 0.5, 0.5]
 ]
 
-const inequalities = [
-  (x, y, k) => -0.5 <= (y - x + Math.SQRT2 * k)/2  && 0.5 >= (y - x + Math.SQRT2 * k)/2,
-  (x, y, k) => -0.5 <= ((2 + Math.SQRT2) * x - (Math.SQRT2 - 2) * y + (2 * k))/4 && 0.5 >= ((2 + Math.SQRT2) * x - (Math.SQRT2 - 2) * y + (2 * k))/4,
-  (x, y, k) => -0.5 <= (-(Math.SQRT2 - 2) * x - (2 + Math.SQRT2) * y - (2 * k))/4 && 0.5 >= (-(Math.SQRT2 - 2) * x - (2 + Math.SQRT2) * y - (2 * k))/4
-]
-
 var prevZ = -10;
 
 function animate() {
   cube.visible = true;
   if(checkbox.checked) {
     cube.visible = false;
-    console.log("abcd")
 
   }
   cube.position.z = slider.value;
   if(slider.value != prevZ) {
+
     prevZ = slider.value;
 
     const prevObj = scene.getObjectByName("intersection");
@@ -110,26 +106,24 @@ function animate() {
           if(!failed) intersections.push(point);
         }
       }
-      console.log(intersections);
-      var newpoints = new Float32Array([-0.64, 0.35, -0.1, -0.35, 0.64, 0.1, 0.64, -0.35, -0.2, 0.35, -0.64, 0.2, -0.5, -0.5, -0.3, 0.5, 0.5, 0.3]);
-      newpoints = new Float32Array([-0.64, 0.35, -0.1, -0.35, 0.64, 0.1, 0.64, -0.35, -0.2]);
-      newpoints = new Float32Array([-0.5, -0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0]);
 
       const intersectionGeometry = new THREE.BufferGeometry();
 
 
-      
-      intersectionGeometry.setAttribute('position', new THREE.BufferAttribute(newpoints, 3))
-      console.log(intersectionGeometry.attributes)
-      const indices = [];
-      for (let i = 0; i < newpoints.length; i++) {
-        for (let j = i + 1; j < newpoints.length; j++) {
-          for (let k = j + 1; k < newpoints.length; k++) {
-            indices.push(i, j, k);
+      intersectionGeometry.setFromPoints(intersections);
+
+      var indices = []
+      // horrible code but its fine
+      for(let i = 0; i < intersections.length; i++) {
+        for(let j = 0; j < intersections.length; j++) {
+          for(let k = 0; k < intersections.length; k++) {
+            indices.push(i)
+            indices.push(j)
+            indices.push(k)
           }
         }
       }
-      intersectionGeometry.setIndex(indices);
+      intersectionGeometry.setIndex(indices)
 
       const intersectionMesh = new THREE.Mesh(intersectionGeometry, material);
       intersectionMesh.name = "intersection";

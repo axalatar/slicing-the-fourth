@@ -36,49 +36,44 @@ function recomputePlanes(theta1, theta2, theta3, theta4, theta5, theta6, k) {
   // [a, b, c, d]
   return [
     [
-      Math.cos(theta4) * Math.cos(theta5) * Math.cos(theta6),
-      -Math.cos(theta4) * Math.cos(theta5) * Math.sin(theta6),
-      -Math.cos(theta4) * Math.sin(theta5),
-       
-       -0.5
-    ],
-    [
       -Math.cos(theta4) * Math.cos(theta5) * Math.cos(theta6),
       Math.cos(theta4) * Math.cos(theta5) * Math.sin(theta6),
       Math.cos(theta4) * Math.sin(theta5),
+       
+       0.5
+    ],
+    [
+      Math.cos(theta4) * Math.cos(theta5) * Math.cos(theta6),
+      -Math.cos(theta4) * Math.cos(theta5) * Math.sin(theta6),
+      -Math.cos(theta4) * Math.sin(theta5),
       
-      -0.5
+      0.5
     ],
     [
-      -Math.cos(theta5) * Math.cos(theta6) * Math.sin(theta2) * Math.sin(theta4) - Math.cos(theta2) * Math.cos(theta6) * Math.sin(theta3) * Math.sin(theta5) + Math.cos(theta2) * Math.cos(theta3) * Math.sin(theta6),
-      Math.cos(theta2) * Math.cos(theta3) * Math.cos(theta6) + Math.cos(theta5) * Math.sin(theta2) * Math.sin(theta4) * Math.sin(theta6) + Math.cos(theta2) * Math.sin(theta3) * Math.sin(theta5) * Math.sin(theta6),
-      -Math.cos(theta2) * Math.cos(theta5) * Math.sin(theta3) + Math.sin(theta2) * Math.sin(theta4) * Math.sin(theta5),
-      -0.5
+      Math.cos(theta5) * Math.cos(theta6) * Math.sin(theta2) * Math.sin(theta4) +
+      Math.cos(theta2) * Math.cos(theta6) * Math.sin(theta3) * Math.sin(theta5) - 
+      Math.cos(theta2) * Math.cos(theta3) * Math.sin(theta6),
+
+      -Math.cos(theta2) * Math.cos(theta3) * Math.cos(theta6) -
+      Math.cos(theta5) * Math.sin(theta2) * Math.sin(theta4) * Math.sin(theta6) -
+      Math.cos(theta2) * Math.sin(theta3) * Math.sin(theta5) * Math.sin(theta6),
+
+      Math.cos(theta2) * Math.cos(theta5) * Math.sin(theta3) -
+      Math.sin(theta2) * Math.sin(theta4) * Math.sin(theta5),
+      0.5
     ],
     [
-      Math.cos(theta5) * Math.cos(theta6) * Math.sin(theta2) * Math.sin(theta4) + Math.cos(theta2) * Math.cos(theta6) * Math.sin(theta3) * Math.sin(theta5) - Math.cos(theta2) * Math.cos(theta3) * Math.sin(theta6),
-      -Math.cos(theta2) * Math.cos(theta3) * Math.cos(theta6) - Math.cos(theta5) * Math.sin(theta2) * Math.sin(theta4) * Math.sin(theta6) - Math.cos(theta2) * Math.sin(theta3) * Math.sin(theta5) * Math.sin(theta6),
-      Math.cos(theta2) * Math.cos(theta5) * Math.sin(theta3) - Math.sin(theta2) * Math.sin(theta4) * Math.sin(theta5),
-      -0.5
-    ],
-    [
-      -Math.cos(theta2) * Math.cos(theta5) * Math.cos(theta6) * Math.sin(theta1) * Math.sin(theta4) +
-      Math.cos(theta1) * Math.cos(theta3) * Math.cos(theta6) * Math.sin(theta5) +
-      Math.cos(theta6) * Math.sin(theta1) * Math.sin(theta2) * Math.sin(theta3) * Math.sin(theta5) -
-      Math.cos(theta3) * Math.sin(theta1) * Math.sin(theta2) * Math.sin(theta6) +
-      Math.cos(theta1) * Math.sin(theta3) * Math.sin(theta6),
+      -Math.cos(theta5) * Math.cos(theta6) * Math.sin(theta2) * Math.sin(theta4) -
+      Math.cos(theta2) * Math.cos(theta6) * Math.sin(theta3) * Math.sin(theta5) +
+      Math.cos(theta2) * Math.cos(theta3) * Math.sin(theta6),
 
-      -Math.cos(theta3) * Math.cos(theta6) * Math.sin(theta1) * Math.sin(theta2) +
-      Math.cos(theta1) * Math.cos(theta6) * Math.sin(theta3) +
-      Math.cos(theta2) * Math.cos(theta5) * Math.sin(theta1) * Math.sin(theta4) * Math.sin(theta6) -
-      Math.cos(theta1) * Math.cos(theta3) * Math.sin(theta5) * Math.sin(theta6) -
-      Math.sin(theta1) * Math.sin(theta2) * Math.sin(theta3) * Math.sin(theta5) * Math.sin(theta6),
+      Math.cos(theta2) * Math.cos(theta3) * Math.cos(theta6) +
+      Math.cos(theta5) * Math.sin(theta2) * Math.sin(theta4) * Math.sin(theta6) +
+      Math.cos(theta2) * Math.sin(theta3) * Math.sin(theta5) * Math.sin(theta6),
 
-      Math.cos(theta1) * Math.cos(theta3) * Math.cos(theta5) +
-      Math.cos(theta5) * Math.sin(theta1) * Math.sin(theta2) * Math.sin(theta3) +
-      Math.cos(theta2) * Math.sin(theta1) * Math.sin(theta4) * Math.sin(theta5),
-
-      -0.5
+      -Math.cos(theta2) * Math.cos(theta5) * Math.sin(theta3) +
+      Math.sin(theta2) * Math.sin(theta4) * Math.sin(theta5),
+      0.5
     ],
     [
       Math.cos(theta2) * Math.cos(theta5) * Math.cos(theta6) * Math.sin(theta1) * Math.sin(theta4) -
@@ -97,7 +92,7 @@ function recomputePlanes(theta1, theta2, theta3, theta4, theta5, theta6, k) {
       Math.cos(theta5) * Math.sin(theta1) * Math.sin(theta2) * Math.sin(theta3) -
       Math.cos(theta2) * Math.sin(theta1) * Math.sin(theta4) * Math.sin(theta5),
 
-      -0.5
+      0.5
     ],
     [
       -Math.cos(theta2) * Math.cos(theta5) * Math.cos(theta6) * Math.sin(theta1) * Math.sin(theta4) +
@@ -116,7 +111,7 @@ function recomputePlanes(theta1, theta2, theta3, theta4, theta5, theta6, k) {
       Math.cos(theta5) * Math.sin(theta1) * Math.sin(theta2) * Math.sin(theta3) +
       Math.cos(theta2) * Math.sin(theta1) * Math.sin(theta4) * Math.sin(theta5),
 
-      -0.5 + k
+      0.5
     ],
     [
       Math.cos(theta2) * Math.cos(theta5) * Math.cos(theta6) * Math.sin(theta1) * Math.sin(theta4) -
@@ -135,7 +130,26 @@ function recomputePlanes(theta1, theta2, theta3, theta4, theta5, theta6, k) {
       Math.cos(theta5) * Math.sin(theta1) * Math.sin(theta2) * Math.sin(theta3) -
       Math.cos(theta2) * Math.sin(theta1) * Math.sin(theta4) * Math.sin(theta5),
 
-      -0.5 - k
+      0.5 - k
+    ],
+    [
+      -Math.cos(theta2) * Math.cos(theta5) * Math.cos(theta6) * Math.sin(theta1) * Math.sin(theta4) +
+      Math.cos(theta1) * Math.cos(theta3) * Math.cos(theta6) * Math.sin(theta5) +
+      Math.cos(theta6) * Math.sin(theta1) * Math.sin(theta2) * Math.sin(theta3) * Math.sin(theta5) -
+      Math.cos(theta3) * Math.sin(theta1) * Math.sin(theta2) * Math.sin(theta6) +
+      Math.cos(theta1) * Math.sin(theta3) * Math.sin(theta6),
+
+      -Math.cos(theta3) * Math.cos(theta6) * Math.sin(theta1) * Math.sin(theta2) +
+      Math.cos(theta1) * Math.cos(theta6) * Math.sin(theta3) +
+      Math.cos(theta2) * Math.cos(theta5) * Math.sin(theta1) * Math.sin(theta4) * Math.sin(theta6) -
+      Math.cos(theta1) * Math.cos(theta3) * Math.sin(theta5) * Math.sin(theta6) -
+      Math.sin(theta1) * Math.sin(theta2) * Math.sin(theta3) * Math.sin(theta5) * Math.sin(theta6),
+
+      Math.cos(theta1) * Math.cos(theta3) * Math.cos(theta5) +
+      Math.cos(theta5) * Math.sin(theta1) * Math.sin(theta2) * Math.sin(theta3) +
+      Math.cos(theta2) * Math.sin(theta1) * Math.sin(theta4) * Math.sin(theta5),
+
+      0.5 + k
     ]
   ]
 }
@@ -178,7 +192,7 @@ function animate() {
     if (prevObj != undefined) {
       scene.remove(prevObj);
     }
-    const planes = recomputePlanes(0, 0, 0, 0, 0, 0, Number.parseFloat(prevW))
+    const planes = recomputePlanes(0, 0, 0, 0, 0, 0, 0)
     // console.log(planes)
 
     const intersections = [];
@@ -229,16 +243,15 @@ function animate() {
           for (let l = 0; l < planes.length; l++) {
             if (l == i || l == j || l == k) continue;
             if (point.x * planes[l][0] + point.y * planes[l][1] + point.z * planes[l][2] > planes[l][3]) {
-              console.log(point.x * planes[l][0] + point.y * planes[l][1] + point.z * planes[l][2])
-              console.log(planes[l][3])
+              //console.log(point.x * planes[l][0] + point.y * planes[l][1] + point.z * planes[l][2])
+              //console.log(planes[l][3])
               failed = true;
               break;
             }
           }
 
           if (!failed) intersections.push(point);
-          if (!failed) console.log("ABCDEFG")
-          //if (!failed) console.log((n2.cross(n3)).multiplyScalar(x1.dot(n1)).add((n3.cross(n1)).multiplyScalar(x2.dot(n2))))
+          // if (!failed) console.log("ABCDEFG")
         }
       }
     }
@@ -247,6 +260,7 @@ function animate() {
 
 
     intersectionGeometry.setFromPoints(intersections);
+    console.log(intersections)
 
     var indices = []
     // horrible code but its fine

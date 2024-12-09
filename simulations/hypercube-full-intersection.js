@@ -1,8 +1,16 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-const canvas = document.getElementById("hypercube-rotated-intersection");
-const slider = document.getElementById("hypercube-rotated-intersection-w");
+const canvas = document.getElementById("hypercube-full-intersection");
+const sliderW = document.getElementById("hypercube-full-intersection-w");
+
+const sliderXY = document.getElementById("hypercube-full-intersection-xy");
+const sliderXZ = document.getElementById("hypercube-full-intersection-xz");
+const sliderXW = document.getElementById("hypercube-full-intersection-xw");
+const sliderYZ = document.getElementById("hypercube-full-intersection-yz");
+const sliderYW = document.getElementById("hypercube-full-intersection-yw");
+const sliderZW = document.getElementById("hypercube-full-intersection-zw");
+
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color().setRGB(1, 1, 0.5)
@@ -14,7 +22,6 @@ const controls = new OrbitControls(camera, canvas);
 const renderer = new THREE.WebGLRenderer({ canvas: canvas });
 renderer.setSize(canvas.width, canvas.height);
 const material = new THREE.MeshStandardMaterial({ color: 0x9797FF, flatShading: true });
-
 
 
 const maxLight = new THREE.PointLight(0xfffff, 100, 0, 2)
@@ -156,23 +163,35 @@ function recomputePlanes(theta_zw, theta_yw, theta_yz, theta_xw, theta_xz, theta
 
 
 var prevW = -10;
+var prevXY = 0;
+var prevXZ = 0;
+var prevXW = 0;
+var prevYZ = 0;
+var prevYW = 0;
+var prevZW = 0;
 
 function deg(rad) {
   return rad * (Math.PI / 180);
 }
 
 function animate() {
-  if (slider.value != prevW) {
+  if (sliderW.value != prevW || sliderXY.value != prevXY || sliderXZ.value != prevXZ || sliderXW.value != prevXW || sliderYZ.value != prevYZ || sliderYW.value != prevYW || sliderZW.value != prevZW) {
 
-    prevW = slider.value;
+    prevW = sliderW.value;
+    prevXY = sliderXY.value;
+    prevXZ = sliderXZ.value;
+    prevXW = sliderXW.value;
+    prevYZ = sliderYZ.value;
+    prevYW = sliderYW.value;
+    prevZW = sliderZW.value;
 
     const prevObj = scene.getObjectByName("intersection");
     if (prevObj != undefined) {
       scene.remove(prevObj);
     }
     // const planes = recomputePlanes(deg(45), deg(45), deg(45), deg(45), deg(45), deg(45), Number.parseFloat(prevW))
-    // const planes = recomputePlanes(deg(45), deg(45), deg(45), deg(45), deg(45), deg(45), Number.parseFloat(prevW))
-    const planes = recomputePlanes(0, 0, 0, deg(45), 0, 0, Number.parseFloat(prevW))
+    const planes = recomputePlanes(deg(Number.parseFloat(prevZW)), deg(Number.parseFloat(prevYW)), deg(Number.parseFloat(prevYZ)), deg(Number.parseFloat(prevXW)), deg(Number.parseFloat(prevXZ)), deg(Number.parseFloat(prevXY)), Number.parseFloat(prevW))
+    // const planes = recomputePlanes(0, 0, 0, deg(45), 0, 0, Number.parseFloat(prevW))
     // console.log(planes)
     const intersections = [];
     for (let i = 0; i < planes.length - 2; i++) {

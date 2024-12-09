@@ -539,7 +539,16 @@
             hypercube and moving towards the corners. Now, what if there's more than one rotation, like how we rotated
             the earlier cube 45 degrees on every axis? This hypercube is rotated by 45 degrees on xw, yw, and zw. Check
             it out, and try to understand why.</p>
-        <div class="placeholder-image">[simulation a slider which controls the cube's w position]</div>
+            <div class="simulation">
+                <canvas class="sim-canvas" height=300 width=500 id="hypercube-full-rotated-intersection"></canvas>
+                <label for="hypercube-full-rotated-intersection-w">W</label>
+                <input type="range" min="-3" max="3" value="3" step="0.1" class="slider"
+                    id="hypercube-full-rotated-intersection-w" oninput="this.nextElementSibling.value = this.value">
+                <output>3</output>
+                <br>
+                <script type="module" src="./simulations/hypercube-full-rotated-intersection.js"></script>
+                <!-- [simulation a slider which controls the cube's w position] -->
+            </div>
         <p>it seems
             almost similar to the simulation with the cube, right? It begins with a point, before growing to a pyramid--
             like the cube's triangle-- before growing into more complex and harder to describe shapes as more faces
@@ -547,8 +556,52 @@
             point.</p>
         <p>...and, that's it. That's pretty much all I've got for you. For fun, here's a simulation where you
             get all the control. Go wild, try to figure out what's going on.</p>
-        <div class="placeholder-image">cube's w position, x pos, y pos, z pos, xy, xz, xw, yz, yw, and zw]</div>
+            <div class="simulation">
+                <canvas class="sim-canvas" height=300 width=500 id="hypercube-full-intersection"></canvas>
+                <label for="hypercube-full-intersection-w">W</label>
+                <input type="range" min="-3" max="3" value="3" step="0.1" class="slider"
+                    id="hypercube-full-intersection-w" oninput="this.nextElementSibling.value = this.value">
+                <output>3</output>
+                <br>
 
+                <label for="hypercube-full-intersection-xy">XY</label>
+                <input type="range" min="-180" max="180" value="0" step="0.1" class="slider"
+                    id="hypercube-full-intersection-xy" oninput="this.nextElementSibling.value = this.value">
+                <output>0</output>
+                <br>
+                
+                <label for="hypercube-full-intersection-xz">XZ</label>
+                <input type="range" min="-180" max="180" value="0" step="0.1" class="slider"
+                    id="hypercube-full-intersection-xz" oninput="this.nextElementSibling.value = this.value">
+                <output>0</output>
+                <br>
+                
+                <label for="hypercube-full-intersection-xw">XW</label>
+                <input type="range" min="-180" max="180" value="0" step="0.1" class="slider"
+                    id="hypercube-full-intersection-xw" oninput="this.nextElementSibling.value = this.value">
+                <output>0</output>
+                <br>
+                
+                <label for="hypercube-full-intersection-yz">YZ</label>
+                <input type="range" min="-180" max="180" value="0" step="0.1" class="slider"
+                    id="hypercube-full-intersection-yz" oninput="this.nextElementSibling.value = this.value">
+                <output>0</output>
+                <br>
+                
+                <label for="hypercube-full-intersection-yw">YW</label>
+                <input type="range" min="-180" max="180" value="0" step="0.1" class="slider"
+                    id="hypercube-full-intersection-yw" oninput="this.nextElementSibling.value = this.value">
+                <output>0</output>
+                <br>
+                
+                <label for="hypercube-full-intersection-xy">ZW</label>
+                <input type="range" min="-180" max="180" value="0" step="0.1" class="slider"
+                    id="hypercube-full-intersection-zw" oninput="this.nextElementSibling.value = this.value">
+                <output>0</output>
+                <br>
+                <script type="module" src="./simulations/hypercube-full-intersection.js"></script>
+                <!-- [simulation a slider which controls the cube's w position] -->
+            </div>
         <h2>Extra thing</h2>
         <p>...hey! You're still here! Wanna learn
             one more thing?</p>

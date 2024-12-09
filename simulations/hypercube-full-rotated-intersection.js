@@ -1,8 +1,8 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-const canvas = document.getElementById("hypercube-rotated-intersection");
-const slider = document.getElementById("hypercube-rotated-intersection-w");
+const canvas = document.getElementById("hypercube-full-rotated-intersection");
+const slider = document.getElementById("hypercube-full-rotated-intersection-w");
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color().setRGB(1, 1, 0.5)
@@ -171,8 +171,8 @@ function animate() {
       scene.remove(prevObj);
     }
     // const planes = recomputePlanes(deg(45), deg(45), deg(45), deg(45), deg(45), deg(45), Number.parseFloat(prevW))
-    // const planes = recomputePlanes(deg(45), deg(45), deg(45), deg(45), deg(45), deg(45), Number.parseFloat(prevW))
-    const planes = recomputePlanes(0, 0, 0, deg(45), 0, 0, Number.parseFloat(prevW))
+    const planes = recomputePlanes(deg(45), deg(45), deg(45), deg(45), deg(45), deg(45), Number.parseFloat(prevW))
+    // const planes = recomputePlanes(0, 0, 0, deg(45), 0, 0, Number.parseFloat(prevW))
     // console.log(planes)
     const intersections = [];
     for (let i = 0; i < planes.length - 2; i++) {

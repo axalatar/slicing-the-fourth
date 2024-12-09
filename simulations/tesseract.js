@@ -138,9 +138,10 @@ function computeEdges(theta_zw, theta_yw, theta_yz, theta_xw, theta_xz, theta_xy
         let p1 = points[edges[i][0]];
         let p2 = points[edges[i][1]];
 
+        let vertices = [new THREE.Vector3(p1.x,p1.y,p1.z), new THREE.Vector3(p2.x,p2.y,p2.z)];
 
-
-        let geometry = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(p1.x,p1.y,p1.z), new THREE.Vector3(p2.x,p2.y,p2.z)])
+        let geometry = new THREE.BufferGeometry().setFromPoints(vertices)
+        // console.log(vertices)
         lines.push(new THREE.Line(geometry, material));
     }
     return lines;

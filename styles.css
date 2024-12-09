@@ -8,6 +8,14 @@ p, h2 {
     margin-right: 18%;
 }
 
+img {
+    margin-left: 18%; 
+    margin-right: 18%;
+    display:flex;
+    margin: auto;
+
+}
+
 .placeholder-image {
     height: 300px;
     width: 500px;

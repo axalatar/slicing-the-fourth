@@ -34,8 +34,7 @@
             on a
             line:</p>
 
-        <div class="placeholder-image">[image here of a stick figure man standing on a line with an arrow in each
-            direction]</div>
+        <img src="images/line.png">
 
 
         <p>He can move either left or right on the line. We can understand this means he has one direction; the line is
@@ -46,8 +45,8 @@
 
         <p>Now, imagine we give him a ladder that he can move along his line.</p>
 
-        <div class="placeholder-image">[image here of the stick figure man saying ‘yay’ with the ladder on the arrow]
-        </div>
+        <img src="images/ladder.png">
+
 
         <p>He can now move left and right, and up and down. There are two directions; he can now move two-dimensionally.
             To
@@ -64,8 +63,7 @@
             He can't turn towards the screen, so from his perspective you don't exist. However, what
             happens if you put your hand next to your screen?</p>
 
-        <div class="placeholder-image"> [image here of a hand on the side of a laptop screen, with a picture of stick
-            figure man on it]</div>
+        <img src="images/hand.png">
         <div style="width: 100%; text-align: center;"><i>Come on, do it! Really!</i></div>
 
 
@@ -74,9 +72,7 @@
             and the plane, you can see it's just something like a circle. We call this the cross-section
             of the plane and the finger.</p>
 
-        <div class="placeholder-image"> [image here of the laptop screen being extended to the finger, and the
-            intersecting circle being drawn out]
-        </div>
+        <img src = "images/hand-intersection.png">
 
         <p>Let's say we want to show Oliver what a cube is
             (you could use a more complex shape, but the math will get harder).</p>
@@ -106,7 +102,7 @@
         </p>
         <p>It's a square. It makes sense; the cube is aligned to the plane, so when the cube enters or leaves
             the plane, all levels of the cube at that z-level enter/leave at the same time. Mathematically,
-            we can see this by looking at the equation of the cube and plane. If we imagine Oliver's house
+            we can see this by looking at the equation of the cube and plane. If we imagine Oliver
             to be the origin (where x, y, and z = 0) and the cube to be a 'unit cube' where
             the side length = 1, then we can say the plane is defined as</p>
 
@@ -137,7 +133,7 @@
             let's get back to the point. What is the fourth dimension? First, extend your knowledge from the prior
             exercise
             to your own world-- the real world. You are Oliver. What does that mean? Well, try to imagine our entire
-            universe-- everything, everywhere-- exists on a flat, three-dimensinoal 'hyperplane' (plane is specific to
+            universe-- everything, everywhere-- existing on a flat, three-dimensional 'hyperplane' (plane is specific to
             2D).
             Now, there are still our three axes (\(x\), \(y\), and \(z\)), but there is also a fourth one, which we can
             call \(w\). As
@@ -200,12 +196,11 @@
             labeled
             tesseracts? What about those? Well, first let's revisit Oliver.</p>
 
-        <div class="placeholder-image">[image of Oliver waving hi]</div>
+        <img src="images/greeting.png">
         <p> You might have
             noticed an issue with our earlier 'simulations' of the intersections. It assumes that the cubes are always
             aligned perfectly with the planes. But, what if that's not the case?</p>
-        <div class="placeholder-image">[image of the cube next to Oliver's
-            plane, now rotated 45 degrees around each axis so one vertex is facing the plane]</div>
+        <img src="images/rotated-cube.png">
         <p>this is the same cube,
             rotated 45 degrees around each axis. Imagine what Oliver would see now, as the plane moves through the
             z-axis. Try to figure it out, and then test your thoughts:</p>
@@ -340,7 +335,7 @@
             \end{bmatrix}
             \end{equation*}
             $$
-            It's a bit of a beast, but remember that our theta is 45 degrees, and that
+            It's a bit of a big vector, but remember that our theta is 45 degrees, and that
             $$
 
             \begin{equation*}
@@ -456,7 +451,7 @@
             $$ This is some shape in terms of \(x\) and \(y\), which immediately can tell us that it's a shape
             Oliver can see. We could break this down further, but at this point it's easiest to just plot it and find
             out. Let's see!</p>
-        <div class="placeholder-image">[picture of the shape plotted in desmos]</div>
+        <img src="images/hexagon.png">
         <p> It looks like some sort of irregular hexagon.
             Interesting!</p>
         <div class="tip">
@@ -465,16 +460,15 @@
                 any math--
                 for an extra challenge, figure out how!</p>
         </div>
-        <div class="placeholder-image">[picture of oliver looking at the weird shape]</div>
         <p>If we shift the
             shape around on the z-axis, we can see the different sections. You can acheive this by adding another term
             to the equations, to represent the z-shift. We'll call it \(k\). In our new system,
             $$
 
             \begin{gather*}
-            -0.5\leqslant \frac{x-y+( z-h)\sqrt{2}}{2} \leqslant 0.5\\
-            -0.5\leqslant \frac{\left( 2+\sqrt{2}\right) x-\left(\sqrt{2} -2\right) y-2( z-h)}{4} \leqslant 0.5\\
-            -0.5\leqslant \frac{-\left(\sqrt{2} -2\right) x+\left( 2+\sqrt{2}\right) y+2( z-h)}{4} \leqslant 0.5
+            -0.5\leqslant \frac{x-y+( z-k)\sqrt{2}}{2} \leqslant 0.5\\
+            -0.5\leqslant \frac{\left( 2+\sqrt{2}\right) x-\left(\sqrt{2} -2\right) y-2( z-k)}{4} \leqslant 0.5\\
+            -0.5\leqslant \frac{-\left(\sqrt{2} -2\right) x+\left( 2+\sqrt{2}\right) y+2( z-k)}{4} \leqslant 0.5
             \end{gather*}
             $$
             and with \(
@@ -482,9 +476,9 @@
             z=0
             \end{equation*}\), $$
             \begin{gather*}
-            -0.5\leqslant \frac{x-y-h\sqrt{2}}{2} \leqslant 0.5\\
-            -0.5\leqslant \frac{\left( 2+\sqrt{2}\right) x-\left(\sqrt{2} -2\right) y+2h)}{4} \leqslant 0.5\\
-            -0.5\leqslant \frac{-\left(\sqrt{2} -2\right) x+\left( 2+\sqrt{2}\right) y-2h)}{4} \leqslant 0.5
+            -0.5\leqslant \frac{x-y-k\sqrt{2}}{2} \leqslant 0.5\\
+            -0.5\leqslant \frac{\left( 2+\sqrt{2}\right) x-\left(\sqrt{2} -2\right) y+2k)}{4} \leqslant 0.5\\
+            -0.5\leqslant \frac{-\left(\sqrt{2} -2\right) x+\left( 2+\sqrt{2}\right) y-2k)}{4} \leqslant 0.5
             \end{gather*}$$ try
             playing around with this in Desmos! This is already a massive block of math so I'm going to move onto
             different stuff now, but have some fun with it! Try looking at different rotations, or even different
@@ -506,7 +500,7 @@
             \(z\). How many rotations are there? Three, of course. But what about 2D? Let's go back to Oliver. How can
             he
             rotate?</p>
-        <div class="placeholder-image">[picture of oliver upside down] </div>
+        <img src="images/rotated.png">
         <p>Just one, of course. But hang on; we always talk about rotating
             around the x-axis, or the y-axis, or the z-axis. If there's one for each axis, why can't he rotate in two
             ways--
@@ -516,7 +510,7 @@
             xy,
             xz, and yz. Our hypercube has 6: xy, xz, xw, yz, yw, and zw. </p>
         <div class="tip">
-            <b style="margin: 15px">Fun fact</b>
+            <b style="margin: 15px">Fun Fact</b>
             <p style="margin: 10px">Only in three dimensions is there
                 the same number of axes and planes!</p>
         </div>
@@ -535,8 +529,8 @@
             <!-- [simulation a slider which controls the cube's w position] -->
         </div>
         <p>Looks
-            weird, right? But, thinking about what it is, it makes sense. We're starting at the midpoint of the
-            hypercube and moving towards the corners. Now, what if there's more than one rotation, like how we rotated
+            weird, right? But, thinking about what it is, it makes sense. We're starting at one edge of the
+            hypercube and moving towards the longer midsection. Now, what if there's more than one rotation, like how we rotated
             the earlier cube 45 degrees on every axis? This hypercube is rotated by 45 degrees on xw, yw, and zw. Check
             it out, and try to understand why.</p>
         <div class="simulation">
@@ -617,14 +611,23 @@
         <p>...hey! You're still here! Wanna learn
             one more thing?</p>
         <p> Have you ever seen one of these things?</p>
-        <div class="placeholder-image">[image of tesseract]</div>
+        <img src="images/tesseract.png">
+        <div style="width: 100%; text-align: center;"><a href="https://math.hmc.edu/funfacts/tesseract/">Image source here</a></div>
+
         <p>They
             always call themselves 4D... but how is it? We never talked about that, right? Well, we've been talking
             about cross-sections. This is a different way of representing them, called projection. It's the more common
-            (and more boring) way of doing it; you just take all the points, (\(x\), \(y\), \(z\), \(w\)), and truncate
-            them down to (\(x\),
-            \(y\), \(z\)). That's it. Those diagrams are where they've projected down the vertices of the hypercube, and
-            connected them in 3D space. If you want, you can play with one here: </p>
+            (and more boring) way of doing it; you just take all the points, and apply a matrix to get it down to \(
+                \begin{equation*}
+                \begin{bmatrix}
+                x\\
+                y\\
+                z
+                \end{bmatrix}
+                \end{equation*}\). For example, you can use an 'orthographic' projection, where you take (\(x\), \(y\), \(z\), \(w\)) and truncate
+            it down to (\(x\),
+            \(y\), \(z\)). That's it.
+             If you want, you can play with one here: </p>
             <div class="simulation">
                 <canvas class="sim-canvas" height=300 width=500 id="tesseract"></canvas>
     
